@@ -11,6 +11,9 @@ player = pygame.Rect((200, 350, 50, 50))
 
 run = True
 while run:
+    
+    pygame.draw.rect(screen, (255, 0, 0), player)
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
