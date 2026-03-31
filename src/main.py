@@ -14,7 +14,7 @@ while run:
     screen.fill((0,0,0))
     
     pygame.draw.rect(screen, (255, 0, 0), player)
-    pygame.draw.rect(screen, (), ground)
+    pygame.draw.rect(screen, (6528, 0, 0), ground)
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
         player.move_ip(-1,0) 
