@@ -6,6 +6,10 @@ width = 1000
 height = 600
 screen = pygame.display.set_mode((width, height))
 
+player_velocity_y = 0
+gravity = 0.5
+jump_st
+
 player = pygame.Rect((200, 350, 50, 50))
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
