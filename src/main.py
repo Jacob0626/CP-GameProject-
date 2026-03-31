@@ -23,18 +23,18 @@ while run:
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
     
-    player_velocity_y = jump_strength
-    player_velocity_y += gravity
-    player.y += player_velocity_y
-    
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
         player.move_ip(-1,0) 
     elif pygame.key.get_pressed():
         if key[pygame.K_d] == True:
             player.move_ip(1,0) 
+    
     if key[pygame.K_SPACE] and player.y == ground_y:
         player_velocity_y = jump_strength
+    
+    player_velocity_y += gravity
+    player.y += int(player_velocity_y)
     
     if player.y > ground_y:
         player.y = ground_y
