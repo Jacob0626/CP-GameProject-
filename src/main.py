@@ -8,7 +8,8 @@ screen = pygame.display.set_mode((width, height))
 
 player_velocity_y = 0
 gravity = 0.5
-jump_st
+jump_strenght = -10
+ground_y = 460
 
 player = pygame.Rect((200, 350, 50, 50))
 grass = pygame.Rect((0, 510, 1000, 20))
@@ -21,6 +22,8 @@ while run:
     pygame.draw.rect(screen, (255, 0, 0), player)
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
+    
+    
     
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
