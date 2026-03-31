@@ -7,8 +7,8 @@ height = 600
 screen = pygame.display.set_mode((width, height))
 
 player = pygame.Rect((200, 350, 50, 50))
-grass = pygame.Rect((0,550, 1000, 50))
-
+grass = pygame.Rect((0, 510, 1000, 20))
+soil = pygame.Rect((0, 530, 1000, 80))
 
 run = True
 while run:
@@ -16,6 +16,8 @@ while run:
     
     pygame.draw.rect(screen, (255, 0, 0), player)
     pygame.draw.rect(screen, (0, 180, 0), grass)
+    pygame.draw.rect(screen, ((139, 69, 19)), soil)
+    
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
         player.move_ip(-1,0) 
