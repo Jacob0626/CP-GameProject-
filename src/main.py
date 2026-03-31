@@ -19,7 +19,7 @@ while run:
         player.move_ip(-1,0) 
     elif pygame.key.get_pressed():
         if key[pygame.K_d] == True:
-            player.move_ip(1, 0) 
+            player.move_ip(1,0) 
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
