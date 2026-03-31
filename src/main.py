@@ -11,7 +11,7 @@ gravity = 0.5
 jump_strength = -10
 ground_y = 460
 
-player = pygame.Rect((200, 350, 50, 50))
+player = pygame.Rect((200, 460, 50, 50))
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
