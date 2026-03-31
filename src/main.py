@@ -22,6 +22,11 @@ while run:
         if key[pygame.K_d] == True:
             player.move_ip(1,0) 
     
+    if player.left < 0:
+        player.left = 0
+    if player.right > width:
+        player.right = width
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
