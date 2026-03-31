@@ -7,14 +7,14 @@ height = 600
 screen = pygame.display.set_mode((width, height))
 
 player = pygame.Rect((200, 350, 50, 50))
-
+ground = pygame.Rect((0,550, 1000, 50))
 
 run = True
 while run:
     screen.fill((0,0,0))
     
     pygame.draw.rect(screen, (255, 0, 0), player)
-    
+    pygame.draw.rect(screen, (), ground)
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
         player.move_ip(-1,0) 
