@@ -16,7 +16,7 @@ while run:
     
     pygame.draw.rect(screen, (255, 0, 0), player)
     pygame.draw.rect(screen, (0, 180, 0), grass)
-    pygame.draw.rect(screen, ((139, 69, 19)), soil)
+    pygame.draw.rect(screen, (139, 69, 19), soil)
     
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
