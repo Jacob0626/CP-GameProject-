@@ -27,17 +27,18 @@ while run:
     player_velocity_y += gravity
     player.y += player_velocity_y
     
-    if player.y > ground_y:
-        player.y = ground_y
-        player_velocity_y = 0
-    
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
         player.move_ip(-1,0) 
     elif pygame.key.get_pressed():
         if key[pygame.K_d] == True:
             player.move_ip(1,0) 
+    if key[pygame.K_SPACE] and player.y == ground_y:
+        player_velocity_y = jump_strength
     
+    if player.y > ground_y:
+        player.y = ground_y
+        player_velocity_y = 0
     
     if player.left < 0:
         player.left = 0
