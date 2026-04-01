@@ -54,6 +54,7 @@ while run:
         player_velocity_y = 0
         on_ground = True
     
+    
     if player_velocity_y > 0:
         if player.colliderect(platform1):
             player.bottom = platform1.top
@@ -67,6 +68,7 @@ while run:
             player_y = player.y
             player_velocity_y = 0
             on_ground = True 
+    
     
     if player.left < 0:
         player.left = 0
