@@ -48,6 +48,8 @@ while run:
     player_y += player_velocity_y 
     player.y = int(player_y)
     
+    on_ground = False
+    
     if player.y >= ground_y:
         player.y = ground_y
         player_y = ground_y 
