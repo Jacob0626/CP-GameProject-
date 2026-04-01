@@ -7,8 +7,8 @@ width = 1000
 height = 600
 screen = pygame.display.set_mode((width, height))
 
-gravity = 0.05
-jump_strength = -3.5
+gravity = 0.03
+jump_strength = -3.0
 player_speed = 0.5
 ground_y = 460
 
@@ -22,7 +22,8 @@ on_ground = True
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
-platform1 = pygame.Rect((500, 500, 150, 15))
+platform1 = pygame.Rect((300, 420, 150, 15))
+platform2 = pygame.Rect((500, 320, 150, 15))
 
 run = True
 while run:
@@ -64,7 +65,8 @@ while run:
     pygame.draw.rect(screen, (255, 0, 0), player)
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
-    pygame.draw.rect(screen, ())
+    pygame.draw.rect(screen, (255, 255, 255), platform1)
+    pygame.draw.rect(screen, (255, 255, 255), platform2)
     
     pygame.display.update() 
 pygame.quit()
