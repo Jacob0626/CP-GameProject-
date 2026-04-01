@@ -95,6 +95,23 @@ while run:
             player.left = platform3.right
             player_x = player.x 
     
+    if player.colliderect(platform4):
+        if previous_player.bottom <= platform4.top and player_velocity_y > 0:
+            player.bottom = platform4.top 
+            player_y = player.y
+            player_velocity_y = 0 
+            on_ground = True
+        elif previous_player.top >= platform4.bottom and player_velocity_y < 0:
+            player.top = platform4.bottom
+            player_y = player.y
+            player_velocity_y = 0
+        elif previous_player.right <= platform4.left:
+            player.right = platform4.left
+            player_x = player.x
+        elif previous_player.left >= platform4.right:
+            player.left = platform4.right
+            player_x = player.x
+    
     
     if player.left < 0:
         player.left = 0
