@@ -12,7 +12,8 @@ jump_strength = -3.0
 player_speed = 1
 ground_y = 460
 
-player = pygame.Rect((200, 460, 50, 50))
+player_x = 200
+player = pygame.Rect((int(player_x), 200, 460, 50, 50))
 player_y = 460
 player_velocity_y = 0 
 on_ground = True
