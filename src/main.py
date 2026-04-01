@@ -28,6 +28,7 @@ platform2 = pygame.Rect((770, 420, 130, 10))
 
 #solid platforms
 platform3 = pygame.Rect((345, 300, 295, 15))
+platform4 = pygame.Rect((100, 200, 200, 15))
 
 run = True
 while run:
@@ -109,7 +110,7 @@ while run:
     pygame.draw.rect(screen, (255, 255, 255), platform1)
     pygame.draw.rect(screen, (255, 255, 255), platform2)
     pygame.draw.rect(screen, (255, 140, 0), platform3)
-    
-    
+    pygame.draw.rect(screen, (255, 140, 0), platform4)
+        
     pygame.display.update() 
 pygame.quit()
