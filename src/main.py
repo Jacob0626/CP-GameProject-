@@ -24,6 +24,7 @@ soil = pygame.Rect((0, 530, 1000, 80))
 
 platform1 = pygame.Rect((300, 420, 100, 15))
 platform2 = pygame.Rect((500, 330, 100, 15))
+platform3 = pygame.Rect((400, 200, 100, 15))
 
 run = True
 while run:
@@ -85,6 +86,7 @@ while run:
     pygame.draw.rect(screen, (139, 69, 19), soil)
     pygame.draw.rect(screen, (255, 255, 255), platform1)
     pygame.draw.rect(screen, (255, 255, 255), platform2)
+    pygame.draw.rect(screen, (255, 255, 255), platform3)
     
     pygame.display.update() 
 pygame.quit()
