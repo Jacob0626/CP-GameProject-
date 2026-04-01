@@ -31,6 +31,7 @@ while run:
         if key[pygame.K_d] == True:
             player.move_ip(1,0) 
     
+    
     if key[pygame.K_SPACE] and player.y == ground_y:
         player_velocity_y = jump_strength
     
