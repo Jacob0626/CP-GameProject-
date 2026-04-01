@@ -12,7 +12,7 @@ jump_strength = -3.0
 player_speed = 0.5
 ground_y = 460
 
-player_x = 50
+player_x = 40
 player = pygame.Rect((int(player_x), 460, 50, 50))
 player_y = 460
 player_velocity_y = 0 
@@ -22,9 +22,8 @@ on_ground = True
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
-platform1 = pygame.Rect((200, 420, 100, 15))
+platform1 = pygame.Rect((100, 420, 100, 15))
 platform2 = pygame.Rect((350, 330, 100, 15))
-platform3 = pygame.Rect((300, 200, 200, 15))
 
 run = True
 while run:
@@ -72,13 +71,6 @@ while run:
             player_velocity_y = 0
             on_ground = True 
     
-    if player_velocity_y > 0:
-        if player.colliderect(platform3):
-            player.bottom = platform3.top
-            player_y = player.y
-            player_velocity_y = 0
-            on_ground = True
-    
     
     if player.left < 0:
         player.left = 0
@@ -93,7 +85,6 @@ while run:
     pygame.draw.rect(screen, (139, 69, 19), soil)
     pygame.draw.rect(screen, (255, 255, 255), platform1)
     pygame.draw.rect(screen, (255, 255, 255), platform2)
-    pygame.draw.rect(screen, (255, 255, 255), platform3)
     
     pygame.display.update() 
 pygame.quit()
