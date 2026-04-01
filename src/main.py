@@ -27,7 +27,7 @@ platform1 = pygame.Rect((100, 420, 130, 10))
 platform2 = pygame.Rect((770, 420, 130, 10))
 
 #solid platforms
-platform3 = pygame.Rect((345, 400, 295, 15))
+platform3 = pygame.Rect((345, 300, 295, 15))
 
 run = True
 while run:
