@@ -24,7 +24,7 @@ soil = pygame.Rect((0, 530, 1000, 80))
 
 platform1 = pygame.Rect((300, 420, 100, 15))
 platform2 = pygame.Rect((500, 330, 100, 15))
-platform3 = pygame.Rect((400, 200, 100, 15))
+platform3 = pygame.Rect((400, 200, 200, 15))
 
 run = True
 while run:
@@ -71,6 +71,13 @@ while run:
             player_y = player.y
             player_velocity_y = 0
             on_ground = True 
+    
+    if player_velocity_y > 0:
+        if player.colliderect(platform3):
+            player.bottom = platform3.top
+            player_y = player.y
+            player_velocity_y = 0
+            on_ground = True
     
     
     if player.left < 0:
