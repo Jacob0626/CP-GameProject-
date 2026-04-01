@@ -13,6 +13,10 @@ player_speed = 3
 ground_y = 460
 
 player = pygame.Rect((200, 460, 50, 50))
+player_y = 460
+player_velocity_y = 0 
+on_ground = True
+
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
