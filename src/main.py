@@ -22,7 +22,9 @@ soil = pygame.Rect((0, 530, 1000, 80))
 
 run = True
 while run:
-    screen.fill((0,0,0))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
     
     key = pygame.key.get_pressed()
     
@@ -30,7 +32,6 @@ while run:
         player.x -= player_speed
     if key[pygame.K_d]:
         player.x += player_speed
-    
     
     if key[pygame.K_SPACE] and on_ground:
         player_velocity_y = jump_strength
@@ -51,14 +52,10 @@ while run:
     if player.right > width:
         player.right = width
     
-    
+    screen.fill((0,0,0))
     pygame.draw.rect(screen, (255, 0, 0), player)
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
-    
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
     
     pygame.display.update() 
 pygame.quit()
