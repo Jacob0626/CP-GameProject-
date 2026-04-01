@@ -53,8 +53,10 @@ while run:
     
     if player.left < 0:
         player.left = 0
+        player_x = 0
     if player.right > width:
         player.right = width
+        player_x = player.x 
     
     screen.fill((0,0,0))
     pygame.draw.rect(screen, (255, 0, 0), player)
