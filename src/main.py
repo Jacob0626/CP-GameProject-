@@ -12,11 +12,12 @@ jump_strength = -3.0
 player_speed = 0.5
 ground_y = 460
 
-player = pygame.Rect((int(player_x), 200, 460, 50, 50))
 player_y = 460
 player_x = 200
 player_velocity_y = 0 
 on_ground = True
+
+player = pygame.Rect((int(player_x), 200, 460, 50, 50))
 
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
