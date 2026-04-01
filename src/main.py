@@ -9,7 +9,7 @@ screen = pygame.display.set_mode((width, height))
 
 gravity = 0.35
 jump_strength = -8.5
-player_speed = 3
+player_speed = 1
 ground_y = 460
 
 player = pygame.Rect((200, 460, 50, 50))
@@ -39,7 +39,7 @@ while run:
     
     player_velocity_y += gravity
     player_y += player_velocity_y 
-    player.y += int(player_y)
+    player.y = int(player_y)
     
     if player.y >= ground_y:
         player.y = ground_y
