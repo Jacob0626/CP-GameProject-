@@ -5,6 +5,7 @@ pygame.init()
 width = 1000
 height = 600
 screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Mini Boss Fight")
 
 player_velocity_y = 0
 gravity = 0.4
