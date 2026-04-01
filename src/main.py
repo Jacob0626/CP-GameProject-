@@ -7,9 +7,9 @@ width = 1000
 height = 600
 screen = pygame.display.set_mode((width, height))
 
-player_velocity_y = 0
-gravity = 0.4
-jump_strength = -11
+gravity = 0.35
+jump_strength = -8.5
+player_speed = 3
 ground_y = 460
 
 player = pygame.Rect((200, 460, 50, 50))
