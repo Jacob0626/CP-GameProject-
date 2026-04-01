@@ -8,7 +8,6 @@ pygame.display.set_caption("Mini Boss Fight")
 width = 1000
 height = 600
 screen = pygame.display.set_mode((width, height))
-FPS = 60 
 
 
 player_velocity_y = 0
