@@ -76,6 +76,8 @@ while run:
             on_ground = True 
     
     
+    
+    
     if player.left < 0:
         player.left = 0
         player_x = 0
