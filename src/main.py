@@ -27,13 +27,15 @@ platform1 = pygame.Rect((100, 420, 130, 10))
 platform2 = pygame.Rect((770, 420, 130, 10))
 
 #solid platforms
-platform3 = pygame.Rect((345, 300, 295, 15))
+platform3 = pygame.Rect((345, 400, 295, 15))
 
 run = True
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+    
+    previous_player = player.copy()
     
     key = pygame.key.get_pressed()
     
@@ -75,7 +77,22 @@ while run:
             player_velocity_y = 0
             on_ground = True 
     
-    
+    if player.colliderect(platform3):
+        if previous_player.bottom <= platform3.top and player_velocity_y > 0:
+            player.bottom = platform3.top 
+            player_y = player.y
+            player_velocity_y = 0 
+            on_ground = True
+        elif previous_player.top >= platform3.bottom and player_velocity_y < 0:
+            player.top = platform3.bottom
+            player_y = player.y
+            player_velocity_y = 0
+        elif previous_player.right <= platform3.left:
+            player.right = platform3.left
+            player_x = player.x
+        elif previous_player.left >= platform3.right:
+            player.left = platform3.right
+            player_x = player.x 
     
     
     if player.left < 0:
