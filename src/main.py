@@ -22,6 +22,8 @@ on_ground = True
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
+platform1 = pygame.Rect(())
+
 run = True
 while run:
     for event in pygame.event.get():
