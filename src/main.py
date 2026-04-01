@@ -30,9 +30,11 @@ while run:
     key = pygame.key.get_pressed()
     
     if key[pygame.K_a]:
-        player.x -= player_speed
+        player_x -= player_speed
     if key[pygame.K_d]:
-        player.x += player_speed
+        player_x += player_speed
+        
+        player.x = int(player_x) 
     
     if key[pygame.K_SPACE] and on_ground:
         player_velocity_y = jump_strength
