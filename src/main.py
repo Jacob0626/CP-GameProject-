@@ -22,8 +22,12 @@ on_ground = True
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
+# one way platforms
 platform1 = pygame.Rect((100, 420, 130, 10))
 platform2 = pygame.Rect((770, 420, 130, 10))
+
+#solid platforms
+platform3 = pygame.Rect((500, 300, 130, 15))
 
 run = True
 while run:
@@ -85,6 +89,8 @@ while run:
     pygame.draw.rect(screen, (139, 69, 19), soil)
     pygame.draw.rect(screen, (255, 255, 255), platform1)
     pygame.draw.rect(screen, (255, 255, 255), platform2)
+    pygame.draw.rect(screen, ())
+    
     
     pygame.display.update() 
 pygame.quit()
