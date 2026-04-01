@@ -24,7 +24,7 @@ soil = pygame.Rect((0, 530, 1000, 80))
 
 platform1 = pygame.Rect((300, 420, 100, 15))
 platform2 = pygame.Rect((500, 330, 100, 15))
-platform3 = pygame.Rect((400, 200, 200, 15))
+platform3 = pygame.Rect((300, 200, 200, 15))
 
 run = True
 while run:
