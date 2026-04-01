@@ -42,8 +42,9 @@ while run:
     
     if player.y > ground_y:
         player.y = ground_y
-        
+        player_y = ground_y 
         player_velocity_y = 0
+        on_ground = True
     
     if player.left < 0:
         player.left = 0
