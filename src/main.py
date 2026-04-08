@@ -30,6 +30,7 @@ platform5 = pygame.Rect((410, 100, 130, 10))
 #solid platforms
 platform3 = pygame.Rect((345, 300, 295, 15))
 platform4 = pygame.Rect((90, 160, 130, 15))
+platform5 = pygame.Rect((550, 160, 130, 15))
 
 
 run = True
