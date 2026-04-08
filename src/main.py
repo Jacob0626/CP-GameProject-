@@ -9,9 +9,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
 
-gravity = 0.03
-jump_strength = -3.3
-player_speed = 0.6
+gravity = 0.35
+jump_strength = -11
+player_speed = 5
 ground_y = 460
 
 player_x = 40
