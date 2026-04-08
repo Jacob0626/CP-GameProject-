@@ -25,7 +25,7 @@ soil = pygame.Rect((0, 530, 1000, 80))
 # one way platforms
 platform1 = pygame.Rect((100, 420, 130, 10))
 platform2 = pygame.Rect((770, 420, 130, 10))
-platform5 = pygame.Rect((410, 100, 130, 10))
+platform5 = pygame.Rect((410, 100, 190, 10))
 
 #solid platforms
 platform3 = pygame.Rect((345, 300, 295, 15))
