@@ -3,9 +3,9 @@ import pygame
 pygame.init()
 pygame.display.set_caption("Mini Boss Fight")
 
-width = 1000
-height = 600
-screen = pygame.display.set_mode((width, height))
+WIDTH = 1000
+HEIGHT = 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 gravity = 0.03
 jump_strength = -3.3
@@ -125,8 +125,8 @@ while run:
     if player.left < 0:
         player.left = 0
         player_x = 0
-    if player.right > width:
-        player.right = width
+    if player.right > WIDTH:
+        player.right = WIDTH
         player_x = player.x 
     
     screen.fill((0,0,0))
