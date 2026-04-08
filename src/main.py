@@ -30,7 +30,7 @@ platform5 = pygame.Rect((410, 100, 130, 10))
 #solid platforms
 platform3 = pygame.Rect((345, 300, 295, 15))
 platform4 = pygame.Rect((90, 160, 130, 15))
-platform5 = pygame.Rect((550, 160, 130, 15))
+platform6 = pygame.Rect((765, 200, 220, 15))
 
 
 run = True
@@ -122,6 +122,24 @@ while run:
             player.left = platform4.right
             player_x = player.x
     
+    if player.colliderect(platform6):
+        if previous_player.bottom <= platform6.top and player_velocity_y > 0:
+            player.bottom = platform6.top 
+            player_y = player.y
+            player_velocity_y = 0 
+            on_ground = True
+        elif previous_player.top >= platform6.bottom and player_velocity_y < 0:
+            player.top = platform6.bottom
+            player_y = player.y
+            player_velocity_y = 0
+        elif previous_player.right <= platform6.left:
+            player.right = platform6.left
+            player_x = player.x
+        elif previous_player.left >= platform6.right:
+            player.left = platform6.right
+            player_x = player.x
+    
+    
     
     if player.left < 0:
         player.left = 0
@@ -139,7 +157,7 @@ while run:
     pygame.draw.rect(screen, (255, 140, 0), platform3)
     pygame.draw.rect(screen, (255, 140, 0), platform4)
     pygame.draw.rect(screen, (255, 255, 255), platform5) 
-    
+    pygame.draw.rect(screen, (255, 140, 0), platform6)
     
     pygame.display.update() 
 pygame.quit()
