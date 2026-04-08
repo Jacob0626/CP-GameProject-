@@ -6,6 +6,8 @@ pygame.display.set_caption("Mini Boss Fight")
 WIDTH = 1000
 HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+clock = pygame.time.Clock()
+
 
 gravity = 0.03
 jump_strength = -3.3
@@ -160,4 +162,5 @@ while run:
     pygame.draw.rect(screen, (255, 140, 0), platform6)
     
     pygame.display.update() 
+    clock.tick(60)
 pygame.quit()
