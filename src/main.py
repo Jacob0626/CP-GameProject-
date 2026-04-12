@@ -29,22 +29,23 @@ soil = pygame.Rect((0, 530, 1000, 80))
 #---------- Platforms ----------
 # one way platforms 
 platform1 = pygame.Rect((100, 420, 130, 10))
-platform2 = pygame.Rect((770, 420, 130, 10))    #Player can land on top but can pass through form below
+platform2 = pygame.Rect((770, 420, 130, 10))    #Player can land on top, but can pass through form below
 platform5 = pygame.Rect((510, 100, 130, 10))
 
 #solid platforms
 platform3 = pygame.Rect((345, 300, 295, 15))
-platform4 = pygame.Rect((90, 160, 130, 15))
+platform4 = pygame.Rect((90, 160, 130, 15))     #Player collides from all sides
 platform6 = pygame.Rect((765, 200, 235, 15))
 
-
+#---------- Main game loop ----------
 run = True
 while run:
+    #---- Quit event ----
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
     
-    previous_player = player.copy()
+    previous_player = player.copy()    # Save previous player pos
     
     key = pygame.key.get_pressed()
     
