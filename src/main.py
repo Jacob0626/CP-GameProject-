@@ -88,56 +88,23 @@ while run:
                 on_ground = True 
     
     # ---- Solid platform collision ----
-    if player.colliderect(platform3):
-        if previous_player.bottom <= platform3.top and player_velocity_y > 0:
-            player.bottom = platform3.top 
-            player_y = player.y
-            player_velocity_y = 0 
-            on_ground = True
-        elif previous_player.top >= platform3.bottom and player_velocity_y < 0:
-            player.top = platform3.bottom
-            player_y = player.y
-            player_velocity_y = 0
-        elif previous_player.right <= platform3.left:
-            player.right = platform3.left
-            player_x = player.x
-        elif previous_player.left >= platform3.right:
-            player.left = platform3.right
-            player_x = player.x 
-    
-    if player.colliderect(platform4):
-        if previous_player.bottom <= platform4.top and player_velocity_y > 0:
-            player.bottom = platform4.top 
-            player_y = player.y
-            player_velocity_y = 0 
-            on_ground = True
-        elif previous_player.top >= platform4.bottom and player_velocity_y < 0:
-            player.top = platform4.bottom
-            player_y = player.y
-            player_velocity_y = 0
-        elif previous_player.right <= platform4.left:
-            player.right = platform4.left
-            player_x = player.x
-        elif previous_player.left >= platform4.right:
-            player.left = platform4.right
-            player_x = player.x
-    
-    if player.colliderect(platform6):
-        if previous_player.bottom <= platform6.top and player_velocity_y > 0:
-            player.bottom = platform6.top 
-            player_y = player.y
-            player_velocity_y = 0 
-            on_ground = True
-        elif previous_player.top >= platform6.bottom and player_velocity_y < 0:
-            player.top = platform6.bottom
-            player_y = player.y
-            player_velocity_y = 0
-        elif previous_player.right <= platform6.left:
-            player.right = platform6.left
-            player_x = player.x
-        elif previous_player.left >= platform6.right:
-            player.left = platform6.right
-            player_x = player.x
+    for platform in solid_platforms:
+        if player.colliderect(platform):
+            if previous_player.bottom <= platform.top and player_velocity_y > 0:
+                player.bottom = platform.top 
+                player_y = player.y
+                player_velocity_y = 0 
+                on_ground = True
+            elif previous_player.top >= platform.bottom and player_velocity_y < 0:
+                player.top = platform.bottom
+                player_y = player.y
+                player_velocity_y = 0
+            elif previous_player.right <= platform.left:
+                player.right = platform.left
+                player_x = player.x
+            elif previous_player.left >= platform.right:
+                player.left = platform.right
+                player_x = player.x 
     
     
     # ---- Keeps player inside screen ----
