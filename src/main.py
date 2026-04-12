@@ -98,7 +98,7 @@ while run:
             player_velocity_y = 0
             on_ground = True 
     
-    
+    # ---- Solid platform collision ----
     if player.colliderect(platform3):
         if previous_player.bottom <= platform3.top and player_velocity_y > 0:
             player.bottom = platform3.top 
@@ -151,7 +151,7 @@ while run:
             player_x = player.x
     
     
-    
+    # ---- Keeps player inside screen ----
     if player.left < 0:
         player.left = 0
         player_x = 0
@@ -159,10 +159,13 @@ while run:
         player.right = WIDTH
         player_x = player.x 
     
+    # ---- Draw everything ----
     screen.fill((0,0,0))
     pygame.draw.rect(screen, (255, 0, 0), player)
-    pygame.draw.rect(screen, (0, 180, 0), grass)
+    
+    pygame.draw.rect(screen, (0, 180, 0), grass)      #
     pygame.draw.rect(screen, (139, 69, 19), soil)
+    
     pygame.draw.rect(screen, (255, 255, 255), platform1)
     pygame.draw.rect(screen, (255, 255, 255), platform2)
     pygame.draw.rect(screen, (255, 140, 0), platform3)
