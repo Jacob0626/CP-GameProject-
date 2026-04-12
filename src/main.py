@@ -26,9 +26,10 @@ on_ground = True
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
-# one way platforms
+#---------- Platforms ----------
+# one way platforms 
 platform1 = pygame.Rect((100, 420, 130, 10))
-platform2 = pygame.Rect((770, 420, 130, 10))
+platform2 = pygame.Rect((770, 420, 130, 10))     
 platform5 = pygame.Rect((510, 100, 130, 10))
 
 #solid platforms
