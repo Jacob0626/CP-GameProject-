@@ -47,6 +47,7 @@ while run:
     
     previous_player = player.copy()    # Save previous player position for solid platform collision checks 
     
+    # ---- Keyboard input ----
     key = pygame.key.get_pressed()
     
     if key[pygame.K_a]:
