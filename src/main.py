@@ -31,11 +31,13 @@ soil = pygame.Rect((0, 530, 1000, 80))
 platform1 = pygame.Rect((100, 420, 130, 10))
 platform2 = pygame.Rect((770, 420, 130, 10))    #Player can land on top, but can pass through form below
 platform5 = pygame.Rect((510, 100, 130, 10))
+one_way_platforms = [platform1, platform2, platform5]
 
 #solid platforms
 platform3 = pygame.Rect((345, 300, 295, 15))
 platform4 = pygame.Rect((90, 160, 130, 15))     #Player collides from all sides
 platform6 = pygame.Rect((765, 200, 235, 15))
+solid_platforms = [platform3, platform4, platform6]
 
 #---------- Main game loop ----------
 run = True
@@ -78,25 +80,12 @@ while run:
     
     # ---- One way platform collision ----
     if player_velocity_y > 0:
-        if player.colliderect(platform1):
-            player.bottom = platform1.top
-            player_y = player.y
-            player_velocity_y = 0
-            on_ground = True 
-    
-    if player_velocity_y > 0:
-        if player.colliderect(platform2):
-            player.bottom = platform2.top
-            player_y = player.y
-            player_velocity_y = 0
-            on_ground = True 
-    
-    if player_velocity_y > 0:
-        if player.colliderect(platform5):
-            player.bottom = platform5.top
-            player_y = player.y
-            player_velocity_y = 0
-            on_ground = True 
+        for platform in one_way_platforms:
+            if player.colliderect(platform):
+                player.bottom = platform.top
+                player_y = player.y
+                player_velocity_y = 0
+                on_ground = True 
     
     # ---- Solid platform collision ----
     if player.colliderect(platform3):
