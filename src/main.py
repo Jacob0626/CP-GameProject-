@@ -126,11 +126,11 @@ while run:
     
     #One way platforms  
     for platform in one_way_platforms:
-        pygame.draw.rect(screen, (255, 255, 255))
+        pygame.draw.rect(screen, (255, 255, 255),platform)
     
     #solid platforms
     for platform in solid_platforms:
-        pygame.draw.rect(screen, (255, 140, 0))
+        pygame.draw.rect(screen, (255, 140, 0), platform)
     
     pygame.display.update() 
     clock.tick(60)
