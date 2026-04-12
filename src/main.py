@@ -24,6 +24,7 @@ on_ground = True
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((765, 160, 30, 40))
+plant_collected = False
 
 # ---------- Ground ---------
 grass = pygame.Rect((0, 510, 1000, 20))
@@ -134,6 +135,8 @@ while run:
     #solid platforms
     for platform in solid_platforms:
         pygame.draw.rect(screen, (255, 140, 0), platform)
+    
+    #Plant
     
     pygame.display.update() 
     clock.tick(60)
