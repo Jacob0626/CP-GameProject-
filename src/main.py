@@ -45,7 +45,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
     
-    previous_player = player.copy()    # Save previous player pos
+    previous_player = player.copy()    # Save previous player position for solid platform collision checks 
     
     key = pygame.key.get_pressed()
     
