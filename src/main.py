@@ -1,5 +1,6 @@
 import pygame
 
+# ---------- Game setup ----------
 pygame.init()
 pygame.display.set_caption("Mini Boss Fight")
 
@@ -8,19 +9,20 @@ HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-
+# ---------- Player movement / physics ----------
 gravity = 0.6 
 jump_strength = -14
 player_speed = 5
 ground_y = 460
 
+# ---------- Player ----------
 player_x = 40
 player = pygame.Rect((int(player_x), 460, 50, 50))
 player_y = 460
 player_velocity_y = 0 
 on_ground = True
 
-
+# ---------- Ground ---------
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
