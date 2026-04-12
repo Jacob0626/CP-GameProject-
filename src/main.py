@@ -29,7 +29,7 @@ soil = pygame.Rect((0, 530, 1000, 80))
 #---------- Platforms ----------
 # one way platforms 
 platform1 = pygame.Rect((100, 420, 130, 10))
-platform2 = pygame.Rect((770, 420, 130, 10))     
+platform2 = pygame.Rect((770, 420, 130, 10))    #Player can land on top but can pass through form below
 platform5 = pygame.Rect((510, 100, 130, 10))
 
 #solid platforms
