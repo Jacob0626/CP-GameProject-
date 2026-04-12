@@ -57,23 +57,26 @@ while run:
     
     player.x = int(player_x)
     
+    # ---- Jump ----
     if key[pygame.K_SPACE] and on_ground:
         player_velocity_y = jump_strength
         on_ground = False
     
+    # ---- Gravity ----
     player_velocity_y += gravity
     player_y += player_velocity_y 
     player.y = int(player_y)
     
-    on_ground = False
+    on_ground = False     # Assume player is in air until floor/platform collision proves otherwise
     
+    # ---- Ground collision ----
     if player.y >= ground_y:
         player.y = ground_y
         player_y = ground_y 
         player_velocity_y = 0
         on_ground = True
     
-    
+    # ---- One way platform collision ----
     if player_velocity_y > 0:
         if player.colliderect(platform1):
             player.bottom = platform1.top
@@ -94,6 +97,7 @@ while run:
             player_y = player.y
             player_velocity_y = 0
             on_ground = True 
+    
     
     if player.colliderect(platform3):
         if previous_player.bottom <= platform3.top and player_velocity_y > 0:
