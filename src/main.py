@@ -23,7 +23,7 @@ player_velocity_y = 0
 on_ground = True
 
 # ---------- Sandwich ----------
-sandwich = pygame.Rect(())
+sandwich = pygame.Rect((765, 160, 30, 40))
 
 # ---------- Ground ---------
 grass = pygame.Rect((0, 510, 1000, 20))
