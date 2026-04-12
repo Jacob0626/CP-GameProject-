@@ -10,7 +10,7 @@ clock = pygame.time.Clock()
 
 
 gravity = 0.6 
-jump_strength = -13
+jump_strength = -14
 player_speed = 5
 ground_y = 460
 
