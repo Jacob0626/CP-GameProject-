@@ -124,13 +124,13 @@ while run:
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
     
-    # Platforms 
-    pygame.draw.rect(screen, (255, 255, 255), platform1)
-    pygame.draw.rect(screen, (255, 255, 255), platform2)
-    pygame.draw.rect(screen, (255, 140, 0), platform3)
-    pygame.draw.rect(screen, (255, 140, 0), platform4)
-    pygame.draw.rect(screen, (255, 255, 255), platform5) 
-    pygame.draw.rect(screen, (255, 140, 0), platform6)
+    #One way platforms  
+    for platform in one_way_platforms:
+        pygame.draw.rect(screen, (255, 255, 255))
+    
+    #solid platforms
+    for platform in solid_platforms:
+        pygame.draw.rect(screen, (255, 140, 0))
     
     pygame.display.update() 
     clock.tick(60)
