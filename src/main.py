@@ -67,7 +67,7 @@ while run:
         facing_right = False
     if key[pygame.K_d]:
         player_x += player_speed 
-    facing_right = True
+        facing_right = True
     
     if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
         if facing_right:
