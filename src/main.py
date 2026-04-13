@@ -126,7 +126,7 @@ while run:
         bullet.x += 8
     
     for bullet in bullets[:]:
-        if bullet.left > WIDTH:        # If the bullet goes out the window, it
+        if bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
             bullets.remove(bullet)
     
     
@@ -159,7 +159,10 @@ while run:
     if not sandwich_collected:
         pygame.draw.rect(screen,(0, 255, 255), sandwich)
         can_shoot = True
-        
+    
+    #Bullet
+    for bullet in bullets:
+        pygame.draw.rect(screen, (255, 255, 0), bullet)
     pygame.display.update() 
     clock.tick(60)
 pygame.quit()
