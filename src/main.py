@@ -21,7 +21,7 @@ player = pygame.Rect((int(player_x), 460, 50, 50))
 player_y = 460
 player_velocity_y = 0 
 on_ground = True
-
+facing_right = True
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((765, 160, 30, 40))
@@ -68,6 +68,8 @@ while run:
     if key[pygame.K_j] and can_shoot:
         bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
         bullets.append(bullet)
+    
+    
     
     player.x = int(player_x)
     
