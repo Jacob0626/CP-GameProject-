@@ -24,7 +24,7 @@ on_ground = True
 facing_right = True
 
 # ----- Boss -----
-boss = pygame.Rect((800, 220, 50, 70))
+boss = pygame.Rect((800, 130, 50, 70))
 boss_max_hp = 10
 boss_hp = 10
 
