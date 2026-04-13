@@ -22,6 +22,7 @@ player_y = 460
 player_velocity_y = 0 
 on_ground = True
 
+
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((765, 160, 30, 40))
 sandwich_collected = False
