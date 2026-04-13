@@ -120,7 +120,7 @@ while run:
     
     if not sandwich_collected and player.colliderect(sandwich):
         sandwich_collected = True
-    
+        can_shoot = True
     
     for bullet in bullets:
         bullet.x += 8
@@ -158,7 +158,6 @@ while run:
     #Sandwich
     if not sandwich_collected:
         pygame.draw.rect(screen,(0, 255, 255), sandwich)
-        can_shoot = True
     
     #Bullet
     for bullet in bullets:
