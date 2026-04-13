@@ -133,18 +133,18 @@ while run:
         sandwich_collected = True
         can_shoot = True
     
-    for bullet in bullets:
+    for bullet_data in bullets:
         bullet = bullet_data[0]
         direction = bullet_data[1]
-        bullet.x += 8
+        bullet.x += 8 * direction
     
-    for bullet in bullets[:]:
+    for bullet_data in bullets[:]:
         bullet = bullet_data[0]
         if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
             bullets.remove(bullet_data)
     
     if shoot_cooldown > 0:
-        shoot_delay -= 1
+        shoot_cooldown -= 1
     
     # ---- Keeps player inside screen ----
     if player.left < 0:
@@ -176,7 +176,7 @@ while run:
         pygame.draw.rect(screen,(0, 255, 255), sandwich)
     
     #Bullet
-    for bullet in bullets:
+    for bullet_data in bullets:
         bullet = bullet_data[0]
         pygame.draw.rect(screen, (255, 255, 0), bullet)
     
