@@ -24,7 +24,9 @@ on_ground = True
 facing_right = True
 
 # ----- Boss -----
-boss = pygame.Rect((800, 160, ))
+boss = pygame.Rect((800, 160, 60, 80))
+boss_max_hp = 10
+boss_hp = 10
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
