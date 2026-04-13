@@ -27,6 +27,8 @@ facing_right = True
 sandwich = pygame.Rect((765, 160, 30, 40))
 sandwich_collected = False
 can_shoot = False
+shoot_cooldown = 0
+shoot_delay = 20
 
 bullets = []
 
@@ -62,14 +64,14 @@ while run:
     
     if key[pygame.K_a]:
         player_x -= player_speed
+        facing_right = False
     if key[pygame.K_d]:
         player_x += player_speed 
+    facing_right = True
     
     if key[pygame.K_j] and can_shoot:
         bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
         bullets.append(bullet)
-    
-    
     
     player.x = int(player_x)
     
