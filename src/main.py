@@ -24,7 +24,7 @@ on_ground = True
 facing_right = True
 
 # ----- Boss -----
-boss = pygame.Rect((800, 160, 60, 80))
+boss = pygame.Rect((800, 160, 50, 70))
 boss_max_hp = 10
 boss_hp = 10
 
@@ -165,7 +165,7 @@ while run:
     pygame.draw.rect(screen, (255, 0, 0), player)
     
     #Boss
-    pygame.draw.rect(screen, (), boss)
+    pygame.draw.rect(screen, (255, 0, 0), boss)
     
     #Ground
     pygame.draw.rect(screen, (0, 180, 0), grass)
