@@ -126,7 +126,7 @@ while run:
         bullet.x += 8
     
     for bullet in bullets[:]:
-        if bullet.left > WIDTH:        # If the bullet 
+        if bullet.left > WIDTH:        # If the bullet goes out the window, it
             bullets.remove(bullet)
     
     
