@@ -24,7 +24,7 @@ on_ground = True
 facing_right = True
 
 # ---------- Sandwich ----------
-sandwich = pygame.Rect((765, 160, 30, 40))
+sandwich = pygame.Rect((940, 160, 30, 40))
 sandwich_collected = False
 can_shoot = False
 shoot_cooldown = 0
