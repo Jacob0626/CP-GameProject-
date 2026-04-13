@@ -69,9 +69,14 @@ while run:
         player_x += player_speed 
     facing_right = True
     
-    if key[pygame.K_j] and can_shoot:
-        bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
-        bullets.append(bullet)
+    if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
+        if facing_right:
+            bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
+            bullets.append([bullet, 1])
+        else:
+            bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
+            bullets.append([bullet, -1])
+        shoot_cooldown = shoot_delay
     
     player.x = int(player_x)
     
@@ -128,11 +133,14 @@ while run:
         can_shoot = True
     
     for bullet in bullets:
+        bullet = bullet_data[0]
+        direction = bullet_data[1]
         bullet.x += 8
     
     for bullet in bullets[:]:
-        if bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
-            bullets.remove(bullet)
+        bullet = bullet_data[0]
+        if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
+            bullets.remove(bullet_data)
     
     if shoot_cooldown > 0:
         shoot_delay -= 1
@@ -168,7 +176,9 @@ while run:
     
     #Bullet
     for bullet in bullets:
+        bullet = bullet_data[0]
         pygame.draw.rect(screen, (255, 255, 0), bullet)
+    
     pygame.display.update() 
     clock.tick(60)
 pygame.quit()
