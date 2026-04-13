@@ -23,6 +23,9 @@ player_velocity_y = 0
 on_ground = True
 facing_right = True
 
+# ----- Boss -----
+
+
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
 sandwich_collected = False
