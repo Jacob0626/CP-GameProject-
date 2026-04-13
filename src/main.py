@@ -76,6 +76,7 @@ while run:
         else:
             bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
             bullets.append([bullet, -1])
+        
         shoot_cooldown = shoot_delay
     
     player.x = int(player_x)
