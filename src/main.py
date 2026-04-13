@@ -134,6 +134,8 @@ while run:
         if bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
             bullets.remove(bullet)
     
+    if shoot_cooldown > 0:
+        shoot_delay -= 1
     
     # ---- Keeps player inside screen ----
     if player.left < 0:
