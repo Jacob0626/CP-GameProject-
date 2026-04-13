@@ -65,7 +65,7 @@ while run:
         player_x += player_speed 
     
     if key[pygame.K_j] and can_shoot:
-        bullet = pygame.draw.Rect(player.right, player.centery - 5, 10, 10)
+        bullet = pygame.draw.rect(player.right, player.centery - 5, 10, 10)
         bullets.append(bullet)
     
     player.x = int(player_x)
