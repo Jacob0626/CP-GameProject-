@@ -111,6 +111,10 @@ while run:
                 player_x = player.x 
     
     
+    if not sandwich_collected and player.colliderect(sandwich):
+        sandwich_collected = True
+    
+    
     # ---- Keeps player inside screen ----
     if player.left < 0:
         player.left = 0
