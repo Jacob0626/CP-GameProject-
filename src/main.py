@@ -164,6 +164,9 @@ while run:
     #Player 
     pygame.draw.rect(screen, (255, 0, 0), player)
     
+    #Boss
+    pygame.draw.rect(screen, (), boss)
+    
     #Ground
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
