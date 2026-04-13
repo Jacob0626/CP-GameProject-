@@ -125,6 +125,10 @@ while run:
     for bullet in bullets:
         bullet.x += 8
     
+    for bullet in bullets[:]:
+        if bullet.left > WIDTH:        # If the bullet 
+            bullets.remove(bullet)
+    
     
     # ---- Keeps player inside screen ----
     if player.left < 0:
