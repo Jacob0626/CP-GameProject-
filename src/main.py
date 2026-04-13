@@ -75,7 +75,7 @@ while run:
     
     player.x = int(player_x)
     
-    # ---- Jump ----
+    #Jump
     if key[pygame.K_SPACE] and on_ground:
         player_velocity_y = jump_strength
         on_ground = False
