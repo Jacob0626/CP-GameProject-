@@ -25,6 +25,7 @@ on_ground = True
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((765, 160, 30, 40))
 sandwich_collected = False
+can_shoot = False
 
 # ---------- Ground ---------
 grass = pygame.Rect((0, 510, 1000, 20))
@@ -143,6 +144,8 @@ while run:
     #Sandwich
     if not sandwich_collected:
         pygame.draw.rect(screen,(0, 255, 255), sandwich)
+        can_shoot = True
+        
     pygame.display.update() 
     clock.tick(60)
 pygame.quit()
