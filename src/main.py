@@ -28,7 +28,7 @@ sandwich = pygame.Rect((765, 160, 30, 40))
 sandwich_collected = False
 can_shoot = False
 shoot_cooldown = 0
-shoot_delay = 20
+shoot_delay = 30
 
 bullets = []
 
