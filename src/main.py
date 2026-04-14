@@ -232,6 +232,7 @@ while run:
         shoot_cooldown = 0
         boss_shoot_cooldown = 0
     
+    player_lives = 3 - player_hits
     
     # ---- Draw everything ----
     screen.fill((0,0,0))
