@@ -107,8 +107,14 @@ def reset_game():
 def draw_game():
     screen.fill((0, 0, 0))
 
+#Player 
+    pygame.draw.rect(screen, (255, 0, 0), player)
+
 #player lives 
 player_lives = 3 - player_hits
+for i in range(player_lives):
+        pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
+
 
 
 #---------- Main game loop ----------
