@@ -87,8 +87,8 @@ while run:
             boss.left = boss_left_limit
             boss_direction = 1
         
-        if boss.right >= boss_left_limit:
-            boss.right = boss_left_limit
+        if boss.right >= boss_right_limit:
+            boss.right = boss_right_limit
             boss_direction = -1
         
         if key[pygame.K_a]:
