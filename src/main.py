@@ -174,6 +174,16 @@ while run:
         boss_bullets.append([boss_bullet, boss_direction])
         boss_shoot_cooldown = boss_shoot_delay
     
+    for bullet_data in boss_bullets:
+        bullet = bullet_data[0]
+        direction = bullet_data[1]
+        bullet.x += 6 * direction
+    
+    for bullet_data in boss_bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.right <0 or bullet.left > WIDTH:
+            boss_bullets.remove(bullet_data)
+    
     if boss_shoot_cooldown > 0:
         boss_shoot_cooldown -= 1
     
@@ -225,6 +235,9 @@ while run:
     pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
     pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
     
+    for bullet_data in boss_bullets:
+        bullet = bullet_data[0]
+        pygame.draw.rect(screen, (0, 0, 225), bullet)
     
     pygame.display.update() 
     clock.tick(60)
