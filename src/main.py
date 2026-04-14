@@ -31,24 +31,10 @@ victory = False
 game_over = False
 
 # ---------- Player ----------
-player_x = 40
-player_y = 460
-player_velocity_y = 0 
-on_ground = True
-facing_right = True
-player_hits = 0
-can_shoot = False
-
-player = pygame.Rect((int(player_x), 460, 50, 50))
+player = Player()
 
 # ---------- Boss ----------
-boss = pygame.Rect((800, 130, 50, 70))
-boss_max_hp = 10
-boss_hp = 10
-boss_direction = 1
-boss_shoot_cooldown = 0
-boss_bullets = []
-boss_bar_bg = pygame.Rect(780, 25, 200, 15)
+boss = Boss()
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
