@@ -111,6 +111,99 @@ def reset_game():
     boss_direction = 1
 
 
+def handle_player_input(key):
+    global player_x, facing_right
+    global shoot_cooldown, bullets
+    global player_velocity_y, on_ground
+    
+    if key[pygame.K_a]:
+        player_x -= player_speed
+        facing_right = False
+    if key[pygame.K_d]:
+        player_x += player_speed 
+        facing_right = True
+    
+    if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
+        if facing_right:
+            bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
+            bullets.append([bullet, 1])
+        else:
+            bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
+            bullets.append([bullet, -1])
+        
+        shoot_cooldown = shoot_delay
+    
+    if key[pygame.K_SPACE] and on_ground:
+            player_velocity_y = jump_strength
+            on_ground = False
+
+
+
+def apply_gravity():
+    global player_velocity_y, player_y, on_ground
+    
+    player_velocity_y += gravity
+    player_y += player_velocity_y
+    player.y = int(player_y)
+    
+    on_ground = False
+
+
+
+def handle_ground_collision():
+    global player_y, player_velocity_y, on_ground
+    
+    if player.y >= ground_y:
+        player.y = ground_y
+        player_y = ground_y 
+        player_velocity_y = 0
+        on_ground = True
+
+
+
+def handle_one_way_collisions():
+    global player_y, player_velocity_y, on_ground
+    
+    if player_velocity_y > 0:
+        for platform in one_way_platforms:
+            if player.colliderect(platform):
+                player.bottom = platform.top
+                player_y = player.y
+                player_velocity_y = 0
+                on_ground = True 
+
+
+
+def handle_solid_collisions(previous_player):
+    global player_y, player_velocity_y, on_ground, player_x
+    
+    for platform in solid_platforms:
+        if player.colliderect(platform):
+            if previous_player.bottom <= platform.top and player_velocity_y > 0:
+                player.bottom = platform.top 
+                player_y = player.y
+                player_velocity_y = 0 
+                on_ground = True
+            elif previous_player.top >= platform.bottom and player_velocity_y < 0:
+                player.top = platform.bottom
+                player_y = player.y
+                player_velocity_y = 0
+            elif previous_player.right <= platform.left:
+                player.right = platform.left
+                player_x = player.x
+            elif previous_player.left >= platform.right:
+                player.left = platform.right
+                player_x = player.x 
+
+
+
+def handle_sandwich_pickup():
+    global sandwich_collected, can_shoot
+    
+    if not sandwich_collected and player.colliderect(sandwich):
+        sandwich_collected = True
+        can_shoot = True
+
 def draw_game():
     screen.fill((0, 0, 0))
     
@@ -246,85 +339,7 @@ def update_boss_bullets():
         game_over = True
 
 
-def handle_player_input(key):
-    global player_x, facing_right
-    global shoot_cooldown, bullets
-    global player_velocity_y, on_ground
-    
-    if key[pygame.K_a]:
-        player_x -= player_speed
-        facing_right = False
-    if key[pygame.K_d]:
-        player_x += player_speed 
-        facing_right = True
-    
-    if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
-        if facing_right:
-            bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
-            bullets.append([bullet, 1])
-        else:
-            bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
-            bullets.append([bullet, -1])
-        
-        shoot_cooldown = shoot_delay
-    
-    if key[pygame.K_SPACE] and on_ground:
-            player_velocity_y = jump_strength
-            on_ground = False
 
-
-def apply_gravity():
-    global player_velocity_y, player_y, on_ground
-    
-    player_velocity_y += gravity
-    player_y += player_velocity_y
-    player.y = int(player_y)
-    
-    on_ground = False
-
-
-def handle_one_way_collisions():
-    global player_y, player_velocity_y, on_ground
-    
-    if player_velocity_y > 0:
-        for platform in one_way_platforms:
-            if player.colliderect(platform):
-                player.bottom = platform.top
-                player_y = player.y
-                player_velocity_y = 0
-                on_ground = True 
-
-
-def handle_solid_collisions(previous_player):
-    global player_y, player_velocity_y, on_ground, player_x
-    
-    for platform in solid_platforms:
-        if player.colliderect(platform):
-            if previous_player.bottom <= platform.top and player_velocity_y > 0:
-                player.bottom = platform.top 
-                player_y = player.y
-                player_velocity_y = 0 
-                on_ground = True
-            elif previous_player.top >= platform.bottom and player_velocity_y < 0:
-                player.top = platform.bottom
-                player_y = player.y
-                player_velocity_y = 0
-            elif previous_player.right <= platform.left:
-                player.right = platform.left
-                player_x = player.x
-            elif previous_player.left >= platform.right:
-                player.left = platform.right
-                player_x = player.x 
-
-
-def handle_ground_collision():
-    global player_y, player_velocity_y, on_ground
-    
-    if player.y >= ground_y:
-        player.y = ground_y
-        player_y = ground_y 
-        player_velocity_y = 0
-        on_ground = True
 
 
 def update_boss_movement():
