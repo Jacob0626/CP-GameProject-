@@ -20,11 +20,6 @@ player_speed = 5
 ground_y = 460
 
 shoot_delay = 30
-boss_shoot_delay = 75
-
-boss_speed = 2
-boss_left_limit = 765
-boss_right_limit = 990
 
 # ---------- Game State ---------- 
 victory = False
@@ -35,6 +30,8 @@ player = Player()
 
 # ---------- Boss ----------
 boss = Boss()
+boss_bar_bg = pygame.Rect(780, 25, 200, 15)
+boss_bullets = []
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
@@ -65,15 +62,15 @@ solid_platforms = [platform3, platform4, platform6]
 # ---------- Functions ----------
 def reset_game():
     global game_over, victory
-    global player_x, player_y, player_velocity_y, player, on_ground, facing_right, player_hits
-    global sandwich_collected, can_shoot
+    global sandwich_collected
     global bullets, boss_bullets
-    global boss_hp
-    global shoot_cooldown, boss_shoot_cooldown
-    global boss, boss_direction
+    global shoot_cooldown
     
     game_over = False
     victory = False
+    
+    player.reset()
+    boss.reset()
     
     player_x = 40
     player_y = 460
