@@ -151,6 +151,12 @@ while run:
     if shoot_cooldown > 0:
         shoot_cooldown -= 1
     
+    for bullet_data in bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.colliderect(boss):
+            boss_hp -= 1
+            bullets.remove(bullet_data)
+    
     # ---- Keeps player inside screen ----
     if player.left < 0:
         player.left = 0
