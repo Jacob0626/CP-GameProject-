@@ -283,7 +283,7 @@ while run:
         game_over_text = font.render("GAME OVER", True, (255, 255, 255))
         screen.blit(game_over_text, (350, 250))
         
-        restart_text = font.render("Press R to Reastart", True, (255, 255, 255))
+        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
         screen.blit(restart_text, (300, 200))
     
     pygame.display.update() 
