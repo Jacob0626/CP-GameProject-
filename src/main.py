@@ -4,6 +4,9 @@ import pygame
 pygame.init()
 pygame.display.set_caption("Mini Boss Fight")
 
+game_over = False
+font = pygame.font.SysFont(None, 60)
+
 
 WIDTH = 1000
 HEIGHT = 600
@@ -189,6 +192,15 @@ while run:
     if boss_shoot_cooldown > 0:
         boss_shoot_cooldown -= 1
     
+    for bullet_data in boss_bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.colliderect(player):
+            player_hits += 1
+            boss_bullets.remove(bullet_data)
+    
+    if player_hits >= 3:
+        game_over = True
+    
     # ---- Keeps player inside screen ----
     if player.left < 0:
         player.left = 0
@@ -241,6 +253,9 @@ while run:
         bullet = bullet_data[0]
         pygame.draw.rect(screen, (0, 0, 225), bullet)
     
+    if game_over:
+        game_over_text = font.render("GAME OVER", True, (255, 255, 255))
+        screen.bilt(game_over_text, (350, 250))
     pygame.display.update() 
     clock.tick(60)
 pygame.quit()
