@@ -4,6 +4,7 @@ import pygame
 pygame.init()
 pygame.display.set_caption("Mini Boss Fight")
 
+victory = False
 game_over = False
 font = pygame.font.SysFont(None, 60)
 small_font = pygame.font.SysFont(None, 35)
