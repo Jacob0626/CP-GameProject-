@@ -239,6 +239,9 @@ while run:
     #Player 
     pygame.draw.rect(screen, (255, 0, 0), player)
     
+    for i in range(player_lives):
+        pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
+    
     #Boss
     pygame.draw.rect(screen, (255, 0, 0), boss)
     
