@@ -169,6 +169,8 @@ while run:
                 bullets.remove(bullet_data)
             if boss_hp < 0:
                 boss_hp = 0
+            if boss_hp == 0:
+                victory = True
         
         
         if boss_shoot_cooldown == 0:
