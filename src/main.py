@@ -266,6 +266,16 @@ def handle_player_input(key):
             on_ground = False
 
 
+def apply_gravity():
+    global player_velocity_y, player_y, on_ground
+    
+    player_velocity_y += gravity
+    player_y += player_velocity_y
+    player.y = int(player.y)
+    
+    on_ground = False
+
+
 #---------- Main game loop ----------
 run = True
 while run:
@@ -291,13 +301,7 @@ while run:
         handle_player_input(key)
         
         player.x = int(player_x)
-        
-        # ---- Gravity ----
-        player_velocity_y += gravity
-        player_y += player_velocity_y 
-        player.y = int(player_y)
-        
-        on_ground = False     # Assume player is in air until floor/platform collision proves otherwise
+            # Assume player is in air until floor/platform collision proves otherwise
         
         # ---- Ground collision ----
         if player.y >= ground_y:
