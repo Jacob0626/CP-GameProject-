@@ -276,6 +276,9 @@ def apply_gravity():
     on_ground = False
 
 
+
+
+
 #---------- Main game loop ----------
 run = True
 while run:
