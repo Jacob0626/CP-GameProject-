@@ -276,7 +276,16 @@ def apply_gravity():
     on_ground = False
 
 
-
+def handle_one_way_collisions():
+    global player_y, player_velocity_y, on_ground
+    
+    if player_velocity_y > 0:
+        for platform in one_way_platforms:
+            if player.colliderect(platform):
+                player.bottom = platform.top
+                player_y = player.y
+                player_velocity_y = 0
+                on_ground = True 
 
 
 #---------- Main game loop ----------
@@ -316,13 +325,7 @@ while run:
             on_ground = True
         
         # ---- One way platform collision ----
-        if player_velocity_y > 0:
-            for platform in one_way_platforms:
-                if player.colliderect(platform):
-                    player.bottom = platform.top
-                    player_y = player.y
-                    player_velocity_y = 0
-                    on_ground = True 
+        handle_one_way_collisions()
         
         # ---- Solid platform collision ----
         for platform in solid_platforms:
