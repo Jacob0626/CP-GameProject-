@@ -218,6 +218,90 @@ def keep_player_inside_screen():
 
 
 
+def update_boss_movement():
+    global boss_direction
+    
+    boss.x += boss_speed * boss_direction
+        
+    if boss.left <= boss_left_limit:
+        boss.left = boss_left_limit
+        boss_direction = 1
+    
+    if boss.right >= boss_right_limit:
+        boss.right = boss_right_limit
+        boss_direction = -1
+
+
+
+def update_player_bullets():
+    global shoot_cooldown, boss_hp, victory
+    global bullets
+    
+    for bullet_data in bullets:
+            bullet = bullet_data[0]
+            direction = bullet_data[1]
+            bullet.x += 8 * direction
+    
+    for bullet_data in bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
+            bullets.remove(bullet_data)
+        
+    if shoot_cooldown > 0:
+        shoot_cooldown -= 1
+    
+    for bullet_data in bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.colliderect(boss):
+            boss_hp -= 1
+            bullets.remove(bullet_data)
+    
+    if boss_hp < 0:
+        boss_hp = 0
+    if boss_hp == 0:
+        victory = True
+
+
+
+def update_boss_bullets():
+    global boss_shoot_cooldown, player_hits, game_over
+    global boss_bullets
+    
+    if boss_shoot_cooldown == 0 and not victory:
+        if player.centerx < boss.centerx:
+            boss_bullet_direction = -1
+            boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
+        else:
+            boss_bullet_direction = 1
+            boss_bullet = pygame.Rect(boss.right, boss.centery - 5, 10, 10)
+    
+        boss_bullets.append([boss_bullet, boss_bullet_direction])
+        boss_shoot_cooldown = boss_shoot_delay
+    
+    for bullet_data in boss_bullets:
+        bullet = bullet_data[0]
+        direction = bullet_data[1]
+        bullet.x += 6 * direction
+    
+    for bullet_data in boss_bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.right <0 or bullet.left > WIDTH:
+            boss_bullets.remove(bullet_data)
+    
+    if boss_shoot_cooldown > 0:
+        boss_shoot_cooldown -= 1
+    
+    for bullet_data in boss_bullets[:]:
+        bullet = bullet_data[0]
+        if bullet.colliderect(player):
+            player_hits += 1
+            boss_bullets.remove(bullet_data)
+    
+    if player_hits >= 3:
+        game_over = True
+
+
+
 
 
 def draw_game():
@@ -288,88 +372,7 @@ def draw_game():
         screen.blit(restart_text, (345, 300))
 
 
-def update_player_bullets():
-    global shoot_cooldown, boss_hp, victory
-    global bullets
-    
-    for bullet_data in bullets:
-            bullet = bullet_data[0]
-            direction = bullet_data[1]
-            bullet.x += 8 * direction
-    
-    for bullet_data in bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
-            bullets.remove(bullet_data)
-        
-    if shoot_cooldown > 0:
-        shoot_cooldown -= 1
-    
-    for bullet_data in bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.colliderect(boss):
-            boss_hp -= 1
-            bullets.remove(bullet_data)
-    
-    if boss_hp < 0:
-        boss_hp = 0
-    if boss_hp == 0:
-        victory = True
 
-
-def update_boss_bullets():
-    global boss_shoot_cooldown, player_hits, game_over
-    global boss_bullets
-    
-    if boss_shoot_cooldown == 0 and not victory:
-        if player.centerx < boss.centerx:
-            boss_bullet_direction = -1
-            boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
-        else:
-            boss_bullet_direction = 1
-            boss_bullet = pygame.Rect(boss.right, boss.centery - 5, 10, 10)
-    
-        boss_bullets.append([boss_bullet, boss_bullet_direction])
-        boss_shoot_cooldown = boss_shoot_delay
-    
-    for bullet_data in boss_bullets:
-        bullet = bullet_data[0]
-        direction = bullet_data[1]
-        bullet.x += 6 * direction
-    
-    for bullet_data in boss_bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.right <0 or bullet.left > WIDTH:
-            boss_bullets.remove(bullet_data)
-    
-    if boss_shoot_cooldown > 0:
-        boss_shoot_cooldown -= 1
-    
-    for bullet_data in boss_bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.colliderect(player):
-            player_hits += 1
-            boss_bullets.remove(bullet_data)
-    
-    if player_hits >= 3:
-        game_over = True
-
-
-
-
-
-def update_boss_movement():
-    global boss_direction
-    
-    boss.x += boss_speed * boss_direction
-        
-    if boss.left <= boss_left_limit:
-        boss.left = boss_left_limit
-        boss_direction = 1
-    
-    if boss.right >= boss_right_limit:
-        boss.right = boss_right_limit
-        boss_direction = -1
 
 
 def handle_sandwich_pickup():
