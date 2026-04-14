@@ -271,7 +271,7 @@ def apply_gravity():
     
     player_velocity_y += gravity
     player_y += player_velocity_y
-    player.y = int(player.y)
+    player.y = int(player_y)
     
     on_ground = False
 
