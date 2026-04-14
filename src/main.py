@@ -75,139 +75,139 @@ while run:
     
     # ---- Keyboard input ----
     key = pygame.key.get_pressed()
-    
-    if key[pygame.K_a]:
-        player_x -= player_speed
-        facing_right = False
-    if key[pygame.K_d]:
-        player_x += player_speed 
-        facing_right = True
-    
-    if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
-        if facing_right:
-            bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
-            bullets.append([bullet, 1])
-        else:
-            bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
-            bullets.append([bullet, -1])
+    if not game_over:
+        if key[pygame.K_a]:
+            player_x -= player_speed
+            facing_right = False
+        if key[pygame.K_d]:
+            player_x += player_speed 
+            facing_right = True
         
-        shoot_cooldown = shoot_delay
-    
-    player.x = int(player_x)
-    
-    #Jump
-    if key[pygame.K_SPACE] and on_ground:
-        player_velocity_y = jump_strength
-        on_ground = False
-    
-    # ---- Gravity ----
-    player_velocity_y += gravity
-    player_y += player_velocity_y 
-    player.y = int(player_y)
-    
-    on_ground = False     # Assume player is in air until floor/platform collision proves otherwise
-    
-    # ---- Ground collision ----
-    if player.y >= ground_y:
-        player.y = ground_y
-        player_y = ground_y 
-        player_velocity_y = 0
-        on_ground = True
-    
-    # ---- One way platform collision ----
-    if player_velocity_y > 0:
-        for platform in one_way_platforms:
+        if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
+            if facing_right:
+                bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
+                bullets.append([bullet, 1])
+            else:
+                bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
+                bullets.append([bullet, -1])
+            
+            shoot_cooldown = shoot_delay
+        
+        player.x = int(player_x)
+        
+        #Jump
+        if key[pygame.K_SPACE] and on_ground:
+            player_velocity_y = jump_strength
+            on_ground = False
+        
+        # ---- Gravity ----
+        player_velocity_y += gravity
+        player_y += player_velocity_y 
+        player.y = int(player_y)
+        
+        on_ground = False     # Assume player is in air until floor/platform collision proves otherwise
+        
+        # ---- Ground collision ----
+        if player.y >= ground_y:
+            player.y = ground_y
+            player_y = ground_y 
+            player_velocity_y = 0
+            on_ground = True
+        
+        # ---- One way platform collision ----
+        if player_velocity_y > 0:
+            for platform in one_way_platforms:
+                if player.colliderect(platform):
+                    player.bottom = platform.top
+                    player_y = player.y
+                    player_velocity_y = 0
+                    on_ground = True 
+        
+        # ---- Solid platform collision ----
+        for platform in solid_platforms:
             if player.colliderect(platform):
-                player.bottom = platform.top
-                player_y = player.y
-                player_velocity_y = 0
-                on_ground = True 
-    
-    # ---- Solid platform collision ----
-    for platform in solid_platforms:
-        if player.colliderect(platform):
-            if previous_player.bottom <= platform.top and player_velocity_y > 0:
-                player.bottom = platform.top 
-                player_y = player.y
-                player_velocity_y = 0 
-                on_ground = True
-            elif previous_player.top >= platform.bottom and player_velocity_y < 0:
-                player.top = platform.bottom
-                player_y = player.y
-                player_velocity_y = 0
-            elif previous_player.right <= platform.left:
-                player.right = platform.left
-                player_x = player.x
-            elif previous_player.left >= platform.right:
-                player.left = platform.right
-                player_x = player.x 
-    
-    
-    if not sandwich_collected and player.colliderect(sandwich):
-        sandwich_collected = True
-        can_shoot = True
-    
-    for bullet_data in bullets:
-        bullet = bullet_data[0]
-        direction = bullet_data[1]
-        bullet.x += 8 * direction
-    
-    for bullet_data in bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
-            bullets.remove(bullet_data)
-    
-    if shoot_cooldown > 0:
-        shoot_cooldown -= 1
-    
-    for bullet_data in bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.colliderect(boss):
-            boss_hp -= 1
-            bullets.remove(bullet_data)
-        if boss_hp < 0:
-            boss_hp = 0
-    
-    
-    if boss_shoot_cooldown == 0:
-        if player.centerx < boss.centerx:
-            boss_direction = -1
-            boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
-        else:
-            boss_direction = 1
-            boss_bullet = pygame.Rect(boss.right, boss.centery - 5, 10, 10)
-        boss_bullets.append([boss_bullet, boss_direction])
-        boss_shoot_cooldown = boss_shoot_delay
-    
-    for bullet_data in boss_bullets:
-        bullet = bullet_data[0]
-        direction = bullet_data[1]
-        bullet.x += 6 * direction
-    
-    for bullet_data in boss_bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.right <0 or bullet.left > WIDTH:
-            boss_bullets.remove(bullet_data)
-    
-    if boss_shoot_cooldown > 0:
-        boss_shoot_cooldown -= 1
-    
-    for bullet_data in boss_bullets[:]:
-        bullet = bullet_data[0]
-        if bullet.colliderect(player):
-            player_hits += 1
-            boss_bullets.remove(bullet_data)
-    
-    if player_hits >= 3:
-        game_over = True
-    
-    # ---- Keeps player inside screen ----
-    if player.left < 0:
-        player.left = 0
-        player_x = 0
-    if player.right > WIDTH:
-        player.right = WIDTH
-        player_x = player.x 
+                if previous_player.bottom <= platform.top and player_velocity_y > 0:
+                    player.bottom = platform.top 
+                    player_y = player.y
+                    player_velocity_y = 0 
+                    on_ground = True
+                elif previous_player.top >= platform.bottom and player_velocity_y < 0:
+                    player.top = platform.bottom
+                    player_y = player.y
+                    player_velocity_y = 0
+                elif previous_player.right <= platform.left:
+                    player.right = platform.left
+                    player_x = player.x
+                elif previous_player.left >= platform.right:
+                    player.left = platform.right
+                    player_x = player.x 
+        
+        
+        if not sandwich_collected and player.colliderect(sandwich):
+            sandwich_collected = True
+            can_shoot = True
+        
+        for bullet_data in bullets:
+            bullet = bullet_data[0]
+            direction = bullet_data[1]
+            bullet.x += 8 * direction
+        
+        for bullet_data in bullets[:]:
+            bullet = bullet_data[0]
+            if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
+                bullets.remove(bullet_data)
+        
+        if shoot_cooldown > 0:
+            shoot_cooldown -= 1
+        
+        for bullet_data in bullets[:]:
+            bullet = bullet_data[0]
+            if bullet.colliderect(boss):
+                boss_hp -= 1
+                bullets.remove(bullet_data)
+            if boss_hp < 0:
+                boss_hp = 0
+        
+        
+        if boss_shoot_cooldown == 0:
+            if player.centerx < boss.centerx:
+                boss_direction = -1
+                boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
+            else:
+                boss_direction = 1
+                boss_bullet = pygame.Rect(boss.right, boss.centery - 5, 10, 10)
+            boss_bullets.append([boss_bullet, boss_direction])
+            boss_shoot_cooldown = boss_shoot_delay
+        
+        for bullet_data in boss_bullets:
+            bullet = bullet_data[0]
+            direction = bullet_data[1]
+            bullet.x += 6 * direction
+        
+        for bullet_data in boss_bullets[:]:
+            bullet = bullet_data[0]
+            if bullet.right <0 or bullet.left > WIDTH:
+                boss_bullets.remove(bullet_data)
+        
+        if boss_shoot_cooldown > 0:
+            boss_shoot_cooldown -= 1
+        
+        for bullet_data in boss_bullets[:]:
+            bullet = bullet_data[0]
+            if bullet.colliderect(player):
+                player_hits += 1
+                boss_bullets.remove(bullet_data)
+        
+        if player_hits >= 3:
+            game_over = True
+        
+        # ---- Keeps player inside screen ----
+        if player.left < 0:
+            player.left = 0
+            player_x = 0
+        if player.right > WIDTH:
+            player.right = WIDTH
+            player_x = player.x 
     
     # ---- Draw everything ----
     screen.fill((0,0,0))
