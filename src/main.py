@@ -281,10 +281,10 @@ while run:
     
     if game_over:
         game_over_text = font.render("GAME OVER", True, (255, 255, 255))
-        screen.blit(game_over_text, (350, 250))
+        screen.blit(game_over_text, (330, 220))
         
         restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (300, 200))
+        screen.blit(restart_text, (355, 300))
     
     pygame.display.update() 
     clock.tick(60)
