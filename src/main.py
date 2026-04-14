@@ -294,29 +294,7 @@ while run:
             sandwich_collected = True
             can_shoot = True
         
-        for bullet_data in bullets:
-            bullet = bullet_data[0]
-            direction = bullet_data[1]
-            bullet.x += 8 * direction
-        
-        for bullet_data in bullets[:]:
-            bullet = bullet_data[0]
-            if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out the window, it's remove from list
-                bullets.remove(bullet_data)
-        
-        if shoot_cooldown > 0:
-            shoot_cooldown -= 1
-        
-        for bullet_data in bullets[:]:
-            bullet = bullet_data[0]
-            if bullet.colliderect(boss):
-                boss_hp -= 1
-                bullets.remove(bullet_data)
-            if boss_hp < 0:
-                boss_hp = 0
-            if boss_hp == 0:
-                victory = True
-        
+        update_player_bullets()
         
         if boss_shoot_cooldown == 0 and not victory:
             if player.centerx < boss.centerx:
