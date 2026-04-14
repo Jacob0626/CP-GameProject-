@@ -6,8 +6,6 @@ pygame.display.set_caption("Mini Boss Fight")
 
 game_over = False
 font = pygame.font.SysFont(None, 60)
-
-font = pygame.font.SysFont(None, 60)
 small_font = pygame.font.SysFont(None, 35)
 
 
@@ -284,7 +282,7 @@ while run:
         screen.blit(game_over_text, (330, 220))
         
         restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (355, 300))
+        screen.blit(restart_text, (355, 320))
     
     pygame.display.update() 
     clock.tick(60)
