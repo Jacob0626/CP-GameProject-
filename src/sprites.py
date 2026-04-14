@@ -4,7 +4,7 @@ class Player:
     def __init__(self):
         self.x = 40
         self.y = 460
-        self.rect = pygame.Rect(int(self.x), 450, 50, 50)
+        self.rect = pygame.Rect(int(self.x), 460, 50, 50)
         self.velocity_y = 0
         self.on_ground = True
         self.facing_right = True
@@ -14,7 +14,7 @@ class Player:
     def reset(self):
         self.x = 40
         self.y = 460
-        self.rect = pygame.Rect(int(self.x), 450, 50, 50)
+        self.rect = pygame.Rect(int(self.x), 460, 50, 50)
         self.velocity_y = 0
         self.on_ground = True
         self.facing_right = True
