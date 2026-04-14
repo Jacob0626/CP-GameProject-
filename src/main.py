@@ -346,7 +346,6 @@ while run:
     
     previous_player = player.copy()    # Save previous player position for solid platform collision checks 
     
-    # ---- Keyboard input ----
     key = pygame.key.get_pressed()
     if not game_over and not victory:
         
@@ -357,7 +356,6 @@ while run:
         player.x = int(player_x)
         
         apply_gravity()
-        
         
         # ---- Ground collision ----
         handle_ground_collision()
