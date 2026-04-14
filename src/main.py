@@ -372,67 +372,39 @@ def draw_game():
         screen.blit(restart_text, (345, 300))
 
 
-
-
-
-def handle_sandwich_pickup():
-    global sandwich_collected, can_shoot
-    
-    if not sandwich_collected and player.colliderect(sandwich):
-        sandwich_collected = True
-        can_shoot = True
-
-
-
-
 #---------- Main game loop ----------
 run = True
 while run:
-    
-    #---- Quit event ----
-    
+    # Quit event
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
     
     previous_player = player.copy()    # Save previous player position for solid platform collision checks 
-    
     key = pygame.key.get_pressed()
+    
     if not game_over and not victory:
-        
         update_boss_movement()
-        
         handle_player_input(key)
         
         player.x = int(player_x)
         
         apply_gravity()
-        
-        # ---- Ground collision ----
         handle_ground_collision()
-        
-        # ---- One way platform collision ----
         handle_one_way_collisions()
-        
-        # ---- Solid platform collision ----
         handle_solid_collisions(previous_player)
         
         handle_sandwich_pickup()
-        
         update_player_bullets()
-        
         update_boss_bullets()
         
-        # ---- Keeps player inside screen ----
         keep_player_inside_screen()
     
     if (game_over or victory) and key[pygame.K_r]:
         reset_game()
     
-    
-    # ---- Draw everything ----
     draw_game()
-    
     pygame.display.update() 
     clock.tick(60)
+
 pygame.quit()    
