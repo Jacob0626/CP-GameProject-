@@ -28,8 +28,6 @@ boss = pygame.Rect((800, 130, 50, 70))
 boss_max_hp = 10
 boss_hp = 10
 boss_bar_bg = pygame.Rect(700, 30, 200, 20)
-current_bar_width = (boss_hp / boss_max_hp) * 200
-boss_bar_current = pygame.Rect(700, 30, int(current_bar_width), 20)
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
@@ -159,6 +157,8 @@ while run:
         if bullet.colliderect(boss):
             boss_hp -= 1
             bullets.remove(bullet_data)
+        if boss_hp < 0:
+            boss_hp = 0
     
     # ---- Keeps player inside screen ----
     if player.left < 0:
@@ -198,6 +198,13 @@ while run:
         pygame.draw.rect(screen, (255, 255, 0), bullet)
     
     #Boss HP bar
+    current_bar_width = (boss_hp / boss_max_hp) * boss_bar_bg.width
+    boss_bar_current = pygame.Rect(
+        boss_bar_bg.x,
+        boss_bar_bg.y,
+        int(current_bar_width),
+        boss_bar_bg.height
+    )
     pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
     pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
     
