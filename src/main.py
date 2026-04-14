@@ -134,6 +134,24 @@ def draw_game():
     if not sandwich_collected:
         pygame.draw.rect(screen,(0, 255, 255), sandwich)
 
+    #Player bullets
+    for bullet_data in bullets:
+        bullet = bullet_data[0]
+        pygame.draw.rect(screen, (255, 255, 0), bullet)
+    
+    #Boss HP bar
+    current_bar_width = (boss_hp / boss_max_hp) * boss_bar_bg.width
+    boss_bar_current = pygame.Rect(
+        boss_bar_bg.x,
+        boss_bar_bg.y,
+        int(current_bar_width),
+        boss_bar_bg.height
+    )
+    pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
+    pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
+
+
+
 #---------- Main game loop ----------
 run = True
 while run:
