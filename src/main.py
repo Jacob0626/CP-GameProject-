@@ -103,6 +103,10 @@ def reset_game():
     boss.x = 800
     boss_direction = 1
 
+
+def draw_game():
+    screen.fill((0, 0, 0))
+
 #---------- Main game loop ----------
 run = True
 while run:
