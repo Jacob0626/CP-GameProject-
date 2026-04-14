@@ -107,6 +107,10 @@ def reset_game():
 def draw_game():
     screen.fill((0, 0, 0))
 
+#player lives 
+player_lives = 3 - player_hits
+
+
 #---------- Main game loop ----------
 run = True
 while run:
@@ -267,7 +271,7 @@ while run:
     if (game_over or victory) and key[pygame.K_r]:
         reset_game()
     
-    player_lives = 3 - player_hits
+    
     
     # ---- Draw everything ----
     screen.fill((0,0,0))
