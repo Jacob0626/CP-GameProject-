@@ -92,52 +92,48 @@ def handle_player_input(key):
     
     if key[pygame.K_j] and player.can_shoot and shoot_cooldown == 0:
         if player.facing_right:
-            bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
+            bullet = pygame.Rect(player.rect.right, player.rect.centery - 5, 10, 10)
             bullets.append([bullet, 1])
         else:
-            bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
+            bullet = pygame.Rect(player.rect.left - 10, player.rect.centery -5, 10, 10)
             bullets.append([bullet, -1])
         
         shoot_cooldown = shoot_delay
     
-    if key[pygame.K_SPACE] and on_ground:
-            player_velocity_y = jump_strength
-            on_ground = False
+    if key[pygame.K_SPACE] and player.on_ground:
+            player.velocity_y = jump_strength
+            player.on_ground = False
 
 
 
 def apply_gravity():
-    global player_velocity_y, player_y, on_ground
+    player.velocity_y += gravity
+    player.y += player_velocity_y
+    player.rect.y = int(player.y)
     
-    player_velocity_y += gravity
-    player_y += player_velocity_y
-    player.y = int(player_y)
-    
-    on_ground = False
+    player.on_ground = False
 
 
 
 def handle_ground_collision():
     global player_y, player_velocity_y, on_ground
     
-    if player.y >= ground_y:
-        player.y = ground_y
-        player_y = ground_y 
-        player_velocity_y = 0
-        on_ground = True
+    if player.rect.y >= ground_y:
+        player.rect.y = ground_y
+        player.y = ground_y 
+        player.facing_rightvelocity_y = 0
+        player.on_ground = True
 
 
 
 def handle_one_way_collisions():
-    global player_y, player_velocity_y, on_ground
-    
-    if player_velocity_y > 0:
+    if player.velocity_y > 0:
         for platform in one_way_platforms:
-            if player.colliderect(platform):
-                player.bottom = platform.top
-                player_y = player.y
-                player_velocity_y = 0
-                on_ground = True 
+            if player.rect.colliderect(platform):
+                player.rect.bottom = platform.top
+                player.y = player.y
+                player.velocity_y = 0
+                player.on_ground = True 
 
 
 
