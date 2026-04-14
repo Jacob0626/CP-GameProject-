@@ -4,6 +4,7 @@ import pygame
 pygame.init()
 pygame.display.set_caption("Mini Boss Fight")
 
+
 WIDTH = 1000
 HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
