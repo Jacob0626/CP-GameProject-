@@ -41,7 +41,7 @@ boss_shoot_delay = 60
 boss_speed = 2
 boss_direction = 1
 boss_left_limit = 765
-boss_right_limit = 950
+boss_right_limit = 990
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
