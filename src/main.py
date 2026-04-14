@@ -197,6 +197,11 @@ while run:
         bullet = bullet_data[0]
         pygame.draw.rect(screen, (255, 255, 0), bullet)
     
+    #Boss HP bar
+    pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
+    pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
+    
+    
     pygame.display.update() 
     clock.tick(60)
 pygame.quit()
