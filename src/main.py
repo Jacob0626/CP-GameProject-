@@ -28,6 +28,9 @@ boss = pygame.Rect((800, 130, 50, 70))
 boss_max_hp = 10
 boss_hp = 10
 boss_bar_bg = pygame.Rect(700, 30, 200, 20)
+boss_bullets = []
+boss_shoot_coldown = 0
+boss_shoot_delay = 60
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
