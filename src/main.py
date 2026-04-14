@@ -213,8 +213,9 @@ while run:
             player.right = WIDTH
             player_x = player.x 
     
-    if game_over and key[pygame.K_r]:
+    if (game_over or victory) and key[pygame.K_r]:
         game_over = False
+        victory = False
         
         player_x = 40
         player_y = 460
