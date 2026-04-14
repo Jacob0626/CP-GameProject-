@@ -52,12 +52,12 @@ boss_bar_bg = pygame.Rect(780, 25, 200, 15)
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
 sandwich_collected = False
-shoot_cooldown = 0
-shoot_delay = 30
 
+# ---------- Bullets ----------
 bullets = []
+shoot_cooldown = 0
 
-# ---------- Ground ---------
+# ---------- Ground ----------
 grass = pygame.Rect((0, 510, 1000, 20))
 soil = pygame.Rect((0, 530, 1000, 80))
 
