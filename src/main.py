@@ -188,12 +188,12 @@ while run:
         
         if boss_shoot_cooldown == 0 and not victory:
             if player.centerx < boss.centerx:
-                boss_direction = -1
+                boss_bullet_direction = -1
                 boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
             else:
-                boss_direction = 1
+                boss_bullet_direction = 1
                 boss_bullet = pygame.Rect(boss.right, boss.centery - 5, 10, 10)
-            boss_bullets.append([boss_bullet, boss_direction])
+            boss_bullets.append([boss_bullet, boss_bullet_direction])
             boss_shoot_cooldown = boss_shoot_delay
         
         for bullet_data in boss_bullets:
