@@ -18,11 +18,16 @@ jump_strength = -14
 player_speed = 5
 ground_y = 460
 
-victory = False
-game_over = False
-
 shoot_delay = 30
 boss_shoot_delay = 75
+
+boss_speed = 2
+boss_left_limit = 765
+boss_right_limit = 990
+
+# ---------- Game State ---------- 
+victory = False
+game_over = False
 
 # ---------- Player ----------
 player_x = 40
@@ -40,10 +45,9 @@ boss_hp = 10
 boss_bar_bg = pygame.Rect(780, 25, 200, 15)
 boss_bullets = []
 boss_shoot_cooldown = 0
-boss_speed = 2
+
 boss_direction = 1
-boss_left_limit = 765
-boss_right_limit = 990
+
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
