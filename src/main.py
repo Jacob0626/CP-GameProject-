@@ -313,7 +313,9 @@ def handle_solid_collisions(previous_player):
 #---------- Main game loop ----------
 run = True
 while run:
+    
     #---- Quit event ----
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
