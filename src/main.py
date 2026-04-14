@@ -323,7 +323,15 @@ def handle_ground_collision():
 def update_boss_movement():
     global boss_direction
     
+    boss.x += boss_speed * boss_direction
+        
+    if boss.left <= boss_left_limit:
+        boss.left = boss_left_limit
+        boss_direction = 1
     
+    if boss.right >= boss_right_limit:
+        boss.right = boss_right_limit
+        boss_direction = -1
 
 
 #---------- Main game loop ----------
@@ -341,14 +349,8 @@ while run:
     # ---- Keyboard input ----
     key = pygame.key.get_pressed()
     if not game_over and not victory:
-        boss.x += boss_speed * boss_direction
-        if boss.left <= boss_left_limit:
-            boss.left = boss_left_limit
-            boss_direction = 1
         
-        if boss.right >= boss_right_limit:
-            boss.right = boss_right_limit
-            boss_direction = -1
+        update_boss_movement()
         
         handle_player_input(key)
         
