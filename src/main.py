@@ -171,6 +171,14 @@ def draw_game():
         restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
         screen.blit(restart_text, (345, 300))
 
+
+def update_player_bullets():
+    global shoot_cooldown, boss_hp, victory
+    global bullets
+    
+    
+
+
 #---------- Main game loop ----------
 run = True
 while run:
