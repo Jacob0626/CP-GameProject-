@@ -301,7 +301,9 @@ while run:
         handle_player_input(key)
         
         player.x = int(player_x)
-            # Assume player is in air until floor/platform collision proves otherwise
+        
+        apply_gravity()
+        
         
         # ---- Ground collision ----
         if player.y >= ground_y:
