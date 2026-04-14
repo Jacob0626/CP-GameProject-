@@ -334,6 +334,26 @@ def update_boss_movement():
         boss_direction = -1
 
 
+def handle_sandwich_pickup():
+    global sandwich_collected, can_shoot
+    
+    if not sandwich_collected and player.colliderect(sandwich):
+        sandwich_collected = True
+        can_shoot = True
+
+
+def keep_player_inside_screen():
+    global player_x
+    
+    if player.left < 0:
+        player.left = 0
+        player_x = 0
+    if player.right > WIDTH:
+        player.right = WIDTH
+        player_x = player.x
+
+
+
 #---------- Main game loop ----------
 run = True
 while run:
@@ -366,21 +386,14 @@ while run:
         # ---- Solid platform collision ----
         handle_solid_collisions(previous_player)
         
-        if not sandwich_collected and player.colliderect(sandwich):
-            sandwich_collected = True
-            can_shoot = True
+        handle_sandwich_pickup()
         
         update_player_bullets()
         
         update_boss_bullets()
         
         # ---- Keeps player inside screen ----
-        if player.left < 0:
-            player.left = 0
-            player_x = 0
-        if player.right > WIDTH:
-            player.right = WIDTH
-            player_x = player.x 
+        keep_player_inside_screen()
     
     if (game_over or victory) and key[pygame.K_r]:
         reset_game()
