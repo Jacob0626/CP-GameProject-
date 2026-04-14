@@ -255,7 +255,7 @@ while run:
     
     if game_over:
         game_over_text = font.render("GAME OVER", True, (255, 255, 255))
-        screen.bilt(game_over_text, (350, 250))
+        screen.blit(game_over_text, (350, 250))
     pygame.display.update() 
     clock.tick(60)
 pygame.quit()
