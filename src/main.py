@@ -244,7 +244,26 @@ def handle_player_input(key):
     global shoot_cooldown, bullets
     global player_velocity_y, on_ground
     
+    if key[pygame.K_a]:
+        player_x -= player_speed
+        facing_right = False
+    if key[pygame.K_d]:
+        player_x += player_speed 
+        facing_right = True
     
+    if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
+        if facing_right:
+            bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
+            bullets.append([bullet, 1])
+        else:
+            bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
+            bullets.append([bullet, -1])
+        
+        shoot_cooldown = shoot_delay
+    
+    if key[pygame.K_SPACE] and on_ground:
+            player_velocity_y = jump_strength
+            on_ground = False
 
 
 #---------- Main game loop ----------
@@ -269,29 +288,9 @@ while run:
             boss.right = boss_right_limit
             boss_direction = -1
         
-        if key[pygame.K_a]:
-            player_x -= player_speed
-            facing_right = False
-        if key[pygame.K_d]:
-            player_x += player_speed 
-            facing_right = True
-        
-        if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
-            if facing_right:
-                bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
-                bullets.append([bullet, 1])
-            else:
-                bullet = pygame.Rect(player.left - 10, player.centery -5, 10, 10)
-                bullets.append([bullet, -1])
-            
-            shoot_cooldown = shoot_delay
+        handle_player_input(key)
         
         player.x = int(player_x)
-        
-        #Jump
-        if key[pygame.K_SPACE] and on_ground:
-            player_velocity_y = jump_strength
-            on_ground = False
         
         # ---- Gravity ----
         player_velocity_y += gravity
