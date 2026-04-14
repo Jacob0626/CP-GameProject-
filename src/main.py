@@ -29,7 +29,7 @@ boss_max_hp = 10
 boss_hp = 10
 boss_bar_bg = pygame.Rect(700, 30, 200, 20)
 current_bar_width = (boss_hp / boss_max_hp) * 200
-
+boss_bar_current = pygame.Rect(700, 30, int(current_bar_width), 20)
 
 # ---------- Sandwich ----------
 sandwich = pygame.Rect((940, 160, 30, 40))
