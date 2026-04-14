@@ -29,7 +29,7 @@ boss_max_hp = 10
 boss_hp = 10
 boss_bar_bg = pygame.Rect(700, 30, 200, 20)
 boss_bullets = []
-boss_shoot_coldown = 0
+boss_shoot_cooldown = 0
 boss_shoot_delay = 60
 
 # ---------- Sandwich ----------
@@ -162,6 +162,10 @@ while run:
             bullets.remove(bullet_data)
         if boss_hp < 0:
             boss_hp = 0
+    
+    if boss_shoot_cooldown > 0:
+        boss_shoot_cooldown -= 1
+    
     
     # ---- Keeps player inside screen ----
     if player.left < 0:
