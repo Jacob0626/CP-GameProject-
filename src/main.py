@@ -332,67 +332,8 @@ while run:
         reset_game()
     
     
-    
     # ---- Draw everything ----
-    screen.fill((0,0,0))
-    #Player 
-    pygame.draw.rect(screen, (255, 0, 0), player)
-    
-    for i in range(player_lives):
-        pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
-    
-    #Boss
-    pygame.draw.rect(screen, (255, 0, 0), boss)
-    
-    #Ground
-    pygame.draw.rect(screen, (0, 180, 0), grass)
-    pygame.draw.rect(screen, (139, 69, 19), soil)
-    
-    #One way platforms  
-    for platform in one_way_platforms:
-        pygame.draw.rect(screen, (255, 255, 255),platform)
-    
-    #solid platforms
-    for platform in solid_platforms:
-        pygame.draw.rect(screen, (255, 140, 0), platform)
-    
-    #Sandwich
-    if not sandwich_collected:
-        pygame.draw.rect(screen,(0, 255, 255), sandwich)
-    
-    #Bullet
-    for bullet_data in bullets:
-        bullet = bullet_data[0]
-        pygame.draw.rect(screen, (255, 255, 0), bullet)
-    
-    #Boss HP bar
-    current_bar_width = (boss_hp / boss_max_hp) * boss_bar_bg.width
-    boss_bar_current = pygame.Rect(
-        boss_bar_bg.x,
-        boss_bar_bg.y,
-        int(current_bar_width),
-        boss_bar_bg.height
-    )
-    pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
-    pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
-    
-    for bullet_data in boss_bullets:
-        bullet = bullet_data[0]
-        pygame.draw.rect(screen, (0, 0, 225), bullet)
-    
-    if game_over:
-        game_over_text = font.render("GAME OVER", True, (255, 255, 255))
-        screen.blit(game_over_text, (330, 220))
-        
-        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (355, 320))
-    
-    if victory:
-        victory_text = font.render("YOU WIN!", True,(255, 255, 255))
-        screen.blit(victory_text, (360, 220))
-        
-        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (345, 300))
+    draw_game()
     
     pygame.display.update() 
     clock.tick(60)
