@@ -239,6 +239,14 @@ def update_boss_bullets():
         game_over = True
 
 
+def handle_player_input(key):
+    global player_x, facing_right
+    global shoot_cooldown, bullets
+    global player_velocity_y, on_ground
+    
+    
+
+
 #---------- Main game loop ----------
 run = True
 while run:
