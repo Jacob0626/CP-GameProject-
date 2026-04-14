@@ -22,6 +22,7 @@ player_y = 460
 player_velocity_y = 0 
 on_ground = True
 facing_right = True
+player_hits = 0
 
 # ----- Boss -----
 boss = pygame.Rect((800, 130, 50, 70))
