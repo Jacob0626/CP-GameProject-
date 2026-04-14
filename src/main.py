@@ -109,12 +109,12 @@ def draw_game():
     
     #Player
     pygame.draw.rect(screen, (255, 0, 0), player)
-
+    
     #player lives 
     player_lives = 3 - player_hits
     for i in range(player_lives):
         pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
-
+    
     #Boss
     pygame.draw.rect(screen, (255, 0, 0), boss)
     
@@ -133,7 +133,7 @@ def draw_game():
     #Sandwich
     if not sandwich_collected:
         pygame.draw.rect(screen,(0, 255, 255), sandwich)
-
+        
     #Player bullets
     for bullet_data in bullets:
         bullet = bullet_data[0]
@@ -149,8 +149,27 @@ def draw_game():
     )
     pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
     pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
-
-
+    
+    #Boss bullets
+    for bullet_data in boss_bullets:
+        bullet = bullet_data[0]
+        pygame.draw.rect(screen, (0, 0, 225), bullet)
+    
+    #Game over text
+    if game_over:
+        game_over_text = font.render("GAME OVER", True, (255, 255, 255))
+        screen.blit(game_over_text, (330, 220))
+        
+        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
+        screen.blit(restart_text, (355, 320))
+    
+    #Victory text
+    if victory:
+        victory_text = font.render("YOU WIN!", True,(255, 255, 255))
+        screen.blit(victory_text, (360, 220))
+        
+        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
+        screen.blit(restart_text, (345, 300))
 
 #---------- Main game loop ----------
 run = True
