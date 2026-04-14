@@ -82,6 +82,15 @@ while run:
     # ---- Keyboard input ----
     key = pygame.key.get_pressed()
     if not game_over and not victory:
+        boss.x += boss_speed * boss_direction
+        if boss.left <= boss_left_limit:
+            boss.left = boss_left_limit
+            boss_direction = 1
+        
+        if boss.left >= boss_left_limit:
+            boss.left = boss_left_limit
+            boss_direction = -1
+        
         if key[pygame.K_a]:
             player_x -= player_speed
             facing_right = False
