@@ -296,7 +296,7 @@ while run:
         screen.blit(victory_text, (360, 250))
         
         restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (355, 320))
+        screen.blit(restart_text, (300, 220))
     
     pygame.display.update() 
     clock.tick(60)
