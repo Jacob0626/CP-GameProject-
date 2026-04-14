@@ -294,10 +294,10 @@ while run:
     
     if victory:
         victory_text = font.render("YOU WIN!", True,(255, 255, 255))
-        screen.blit(victory_text, (330, 220))
+        screen.blit(victory_text, (360, 220))
         
         restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (355, 220))
+        screen.blit(restart_text, (300, 300))
     
     pygame.display.update() 
     clock.tick(60)
