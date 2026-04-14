@@ -7,6 +7,9 @@ pygame.display.set_caption("Mini Boss Fight")
 game_over = False
 font = pygame.font.SysFont(None, 60)
 
+font = pygame.font.SysFont(None, 60)
+small_font = pygame.font.SysFont(None, 35)
+
 
 WIDTH = 1000
 HEIGHT = 600
