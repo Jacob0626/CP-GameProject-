@@ -188,7 +188,7 @@ def update_player_bullets():
         
     if shoot_cooldown > 0:
         shoot_cooldown -= 1
-        
+    
     for bullet_data in bullets[:]:
         bullet = bullet_data[0]
         if bullet.colliderect(boss):
