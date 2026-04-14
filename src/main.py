@@ -106,16 +106,33 @@ def reset_game():
 
 def draw_game():
     screen.fill((0, 0, 0))
-
-#Player 
+    
+    #Player
     pygame.draw.rect(screen, (255, 0, 0), player)
 
-#player lives 
-player_lives = 3 - player_hits
-for i in range(player_lives):
+    #player lives 
+    player_lives = 3 - player_hits
+    for i in range(player_lives):
         pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
 
-
+    #Boss
+    pygame.draw.rect(screen, (255, 0, 0), boss)
+    
+    #Ground
+    pygame.draw.rect(screen, (0, 180, 0), grass)
+    pygame.draw.rect(screen, (139, 69, 19), soil)
+    
+    #One way platforms  
+    for platform in one_way_platforms:
+        pygame.draw.rect(screen, (255, 255, 255),platform)
+    
+    #solid platforms
+    for platform in solid_platforms:
+        pygame.draw.rect(screen, (255, 140, 0), platform)
+    
+    #Sandwich
+    if not sandwich_collected:
+        pygame.draw.rect(screen,(0, 255, 255), sandwich)
 
 #---------- Main game loop ----------
 run = True
