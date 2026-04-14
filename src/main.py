@@ -320,6 +320,12 @@ def handle_ground_collision():
         on_ground = True
 
 
+def update_boss_movement():
+    global boss_direction
+    
+    
+
+
 #---------- Main game loop ----------
 run = True
 while run:
