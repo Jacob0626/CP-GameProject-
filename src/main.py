@@ -204,6 +204,22 @@ def handle_sandwich_pickup():
         sandwich_collected = True
         can_shoot = True
 
+
+
+def keep_player_inside_screen():
+    global player_x
+    
+    if player.left < 0:
+        player.left = 0
+        player_x = 0
+    if player.right > WIDTH:
+        player.right = WIDTH
+        player_x = player.x
+
+
+
+
+
 def draw_game():
     screen.fill((0, 0, 0))
     
@@ -363,16 +379,6 @@ def handle_sandwich_pickup():
         sandwich_collected = True
         can_shoot = True
 
-
-def keep_player_inside_screen():
-    global player_x
-    
-    if player.left < 0:
-        player.left = 0
-        player_x = 0
-    if player.right > WIDTH:
-        player.right = WIDTH
-        player_x = player.x
 
 
 
