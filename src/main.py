@@ -77,7 +77,7 @@ while run:
     
     # ---- Keyboard input ----
     key = pygame.key.get_pressed()
-    if not game_over:
+    if not game_over and not victory:
         if key[pygame.K_a]:
             player_x -= player_speed
             facing_right = False
@@ -173,7 +173,7 @@ while run:
                 victory = True
         
         
-        if boss_shoot_cooldown == 0:
+        if boss_shoot_cooldown == 0 and not victory:
             if player.centerx < boss.centerx:
                 boss_direction = -1
                 boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
