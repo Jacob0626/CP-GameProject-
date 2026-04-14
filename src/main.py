@@ -248,6 +248,8 @@ while run:
         
         shoot_cooldown = 0
         boss_shoot_cooldown = 0
+        boss.x = 800
+        boss_direction = 1
     
     player_lives = 3 - player_hits
     
