@@ -74,6 +74,8 @@ platform4 = pygame.Rect((90, 160, 130, 15))     #Player collides from all sides
 platform6 = pygame.Rect((765, 200, 235, 15))
 solid_platforms = [platform3, platform4, platform6]
 
+
+# ---------- Functions ----------
 def reset_game():
     global game_over, victory
     global player_x, player_y, player_velocity_y, player, on_ground, facing_right, player_hits
