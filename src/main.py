@@ -295,15 +295,15 @@ def draw_game():
     screen.fill((0, 0, 0))
     
     #Player
-    pygame.draw.rect(screen, (255, 0, 0), player)
+    pygame.draw.rect(screen, (255, 0, 0), player.rect)
     
     #player lives 
-    player_lives = 3 - player_hits
+    player_lives = 3 - player.hits
     for i in range(player_lives):
         pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
     
     #Boss
-    pygame.draw.rect(screen, (255, 0, 0), boss)
+    pygame.draw.rect(screen, (255, 0, 0), boss.rect)
     
     #Ground
     pygame.draw.rect(screen, (0, 180, 0), grass)
@@ -327,7 +327,7 @@ def draw_game():
         pygame.draw.rect(screen, (255, 255, 0), bullet)
     
     #Boss HP bar
-    current_bar_width = (boss_hp / boss_max_hp) * boss_bar_bg.width
+    current_bar_width = (boss.hp / boss.max_hp) * boss_bar_bg.width
     boss_bar_current = pygame.Rect(
         boss_bar_bg.x,
         boss_bar_bg.y,
