@@ -310,6 +310,16 @@ def handle_solid_collisions(previous_player):
                 player_x = player.x 
 
 
+def handle_ground_collision():
+    global player_y, player_velocity_y, on_ground
+    
+    if player.y >= ground_y:
+        player.y = ground_y
+        player_y = ground_y 
+        player_velocity_y = 0
+        on_ground = True
+
+
 #---------- Main game loop ----------
 run = True
 while run:
@@ -342,11 +352,7 @@ while run:
         
         
         # ---- Ground collision ----
-        if player.y >= ground_y:
-            player.y = ground_y
-            player_y = ground_y 
-            player_velocity_y = 0
-            on_ground = True
+        handle_ground_collision()
         
         # ---- One way platform collision ----
         handle_one_way_collisions()
