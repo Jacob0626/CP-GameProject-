@@ -4,22 +4,25 @@ import pygame
 pygame.init()
 pygame.display.set_caption("Mini Boss Fight")
 
-victory = False
-game_over = False
-font = pygame.font.SysFont(None, 60)
-small_font = pygame.font.SysFont(None, 35)
-
-
 WIDTH = 1000
 HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-# ---------- Player movement / physics ----------
+font = pygame.font.SysFont(None, 60)
+small_font = pygame.font.SysFont(None, 35)
+
+# ---------- Constants ----------
 gravity = 0.6 
 jump_strength = -14
 player_speed = 5
 ground_y = 460
+
+victory = False
+game_over = False
+
+
+
 
 # ---------- Player ----------
 player_x = 40
