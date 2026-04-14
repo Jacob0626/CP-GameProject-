@@ -69,6 +69,40 @@ platform4 = pygame.Rect((90, 160, 130, 15))     #Player collides from all sides
 platform6 = pygame.Rect((765, 200, 235, 15))
 solid_platforms = [platform3, platform4, platform6]
 
+def reset_game():
+    global game_over, victory
+    global player_x, player_y, player_velocity_y, player, on_ground, facing_right, player_hits
+    global sandwich_collected, can_shoot
+    global bullets, boss_bullets
+    global boss_hp
+    global shoot_cooldown, boss_shoot_cooldown
+    global boss
+    
+    game_over = False
+    victory = False
+    
+    player_x = 40
+    player_y = 460
+    player_velocity_y = 0
+    player = pygame.Rect((int(player_x), 460, 50, 50))
+    on_ground = True
+    facing_right = True
+    player_hits = 0
+    
+    sandwich_collected = False
+    can_shoot = False
+    
+    bullets = []
+    boss_bullets = []
+    
+    boss_hp = boss_max_hp
+    
+    shoot_cooldown = 0
+    boss_shoot_cooldown = 0
+    
+    boss.x = 800
+    boss_direction = 1
+
 #---------- Main game loop ----------
 run = True
 while run:
