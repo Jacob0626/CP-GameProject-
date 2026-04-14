@@ -76,7 +76,7 @@ def reset_game():
     global bullets, boss_bullets
     global boss_hp
     global shoot_cooldown, boss_shoot_cooldown
-    global boss
+    global boss, boss_direction
     
     game_over = False
     victory = False
