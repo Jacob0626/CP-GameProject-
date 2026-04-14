@@ -288,6 +288,28 @@ def handle_one_way_collisions():
                 on_ground = True 
 
 
+def handle_solid_collisions(previous_player):
+    global player_y, player_velocity_y, on_ground, player_x
+    
+    for platform in solid_platforms:
+        if player.colliderect(platform):
+            if previous_player.bottom <= platform.top and player_velocity_y > 0:
+                player.bottom = platform.top 
+                player_y = player.y
+                player_velocity_y = 0 
+                on_ground = True
+            elif previous_player.top >= platform.bottom and player_velocity_y < 0:
+                player.top = platform.bottom
+                player_y = player.y
+                player_velocity_y = 0
+            elif previous_player.right <= platform.left:
+                player.right = platform.left
+                player_x = player.x
+            elif previous_player.left >= platform.right:
+                player.left = platform.right
+                player_x = player.x 
+
+
 #---------- Main game loop ----------
 run = True
 while run:
@@ -328,24 +350,7 @@ while run:
         handle_one_way_collisions()
         
         # ---- Solid platform collision ----
-        for platform in solid_platforms:
-            if player.colliderect(platform):
-                if previous_player.bottom <= platform.top and player_velocity_y > 0:
-                    player.bottom = platform.top 
-                    player_y = player.y
-                    player_velocity_y = 0 
-                    on_ground = True
-                elif previous_player.top >= platform.bottom and player_velocity_y < 0:
-                    player.top = platform.bottom
-                    player_y = player.y
-                    player_velocity_y = 0
-                elif previous_player.right <= platform.left:
-                    player.right = platform.left
-                    player_x = player.x
-                elif previous_player.left >= platform.right:
-                    player.left = platform.right
-                    player_x = player.x 
-        
+        handle_solid_collisions(previous_player)
         
         if not sandwich_collected and player.colliderect(sandwich):
             sandwich_collected = True
