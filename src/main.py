@@ -72,43 +72,26 @@ def reset_game():
     player.reset()
     boss.reset()
     
-    player_x = 40
-    player_y = 460
-    player_velocity_y = 0
-    player = pygame.Rect((int(player_x), 460, 50, 50))
-    on_ground = True
-    facing_right = True
-    player_hits = 0
-    
     sandwich_collected = False
-    can_shoot = False
     
     bullets = []
     boss_bullets = []
     
-    boss_hp = boss_max_hp
-    
     shoot_cooldown = 0
-    boss_shoot_cooldown = 0
-    
-    boss.x = 800
-    boss_direction = 1
 
 
 def handle_player_input(key):
-    global player_x, facing_right
     global shoot_cooldown, bullets
-    global player_velocity_y, on_ground
     
     if key[pygame.K_a]:
-        player_x -= player_speed
-        facing_right = False
+        player.x -= player_speed
+        player.facing_right = False
     if key[pygame.K_d]:
-        player_x += player_speed 
-        facing_right = True
+        player.x += player_speed 
+        player.facing_right = True
     
-    if key[pygame.K_j] and can_shoot and shoot_cooldown == 0:
-        if facing_right:
+    if key[pygame.K_j] and player.can_shoot and shoot_cooldown == 0:
+        if player.facing_right:
             bullet = pygame.Rect(player.right, player.centery - 5, 10, 10)
             bullets.append([bullet, 1])
         else:
