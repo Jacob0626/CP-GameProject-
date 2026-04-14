@@ -1,4 +1,5 @@
 import pygame
+from sprites import Player, Boss
 
 # ---------- Game setup ----------
 pygame.init()
