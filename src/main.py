@@ -261,29 +261,7 @@ while run:
             player_x = player.x 
     
     if (game_over or victory) and key[pygame.K_r]:
-        game_over = False
-        victory = False
-        
-        player_x = 40
-        player_y = 460
-        player_velocity_y = 0
-        player = pygame.Rect((int(player_x), 460, 50, 50))
-        on_ground = True
-        facing_right = True
-        player_hits = 0
-        
-        sandwich_collected = False 
-        can_shoot = False 
-        
-        bullets = []
-        boss_bullets = []
-        
-        boss_hp = boss_max_hp
-        
-        shoot_cooldown = 0
-        boss_shoot_cooldown = 0
-        boss.x = 800
-        boss_direction = 1
+        reset_game()
     
     player_lives = 3 - player_hits
     
