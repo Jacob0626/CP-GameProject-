@@ -43,7 +43,8 @@ shoot_delay = 30
 # ---------- Game State ---------- 
 victory = False
 game_over = False
-
+game_started = False
+play_button = pygame.Rect(380, 300, 240, 70)
 
 # ---------- Player ----------
 player = Player()
@@ -256,6 +257,17 @@ def draw_outlined_text(surface, text, font, text_color, outline_color, x, y):
 
     surface.blit(base_text, (x, y))
 
+def draw_started_menu():
+    screen.blit(background_image, (0, 0))
+    
+    draw_outlined_text(screen, "MINI BOSS FIGHT", font, (255, 255, 255), (0, 0, 0), 220, 150)
+    
+    pygame.draw.rect(screen, (50, 50, 50), play_button)
+    pygame.draw.rect(screen, (255, 255, 255), play_button, 3)
+    
+    play_text = small_font.render("PLAY", True, (255, 255, 255))
+    play_text_rect = play_text.get_rect(center=play_button.center)
+    screen.blit(play_text, play_text_rect)
 
 def draw_game():
     screen.fill((0, 0, 0))
