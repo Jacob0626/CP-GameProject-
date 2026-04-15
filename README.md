@@ -24,6 +24,7 @@ install Pygame with:
 
 '''bash
 pip install pygame
+
 ---
 ### Run the game 
 python dist/main.py
