@@ -239,7 +239,7 @@ def draw_game():
     screen.fill((0, 0, 0))
     
     #Player
-    pygame.draw.rect(screen, (255, 0, 0), player.rect)
+    screen.blit(player_image, player.rect)
     
     #player lives 
     player_lives = 3 - player.hits
