@@ -285,43 +285,43 @@ def draw_game():
     screen.blit(background_image, (0, 0))
     
     
-    #Player
+    # Player
     screen.blit(player_image, player.rect)
     
-    #player lives 
+    # player lives 
     player_lives = 3 - player.hits
     for i in range(player_lives):
         screen.blit(heart_image, (20 + i * 35, 20))
     
-    #Boss
+    # Boss
     screen.blit(boss_image, boss.rect)    
     #Ground
     pygame.draw.rect(screen, (20, 120, 20), grass)
     pygame.draw.rect(screen, (90, 55, 20), soil)
     
-    #One way platforms  
+    # One way platforms  
     for platform in one_way_platforms:
         visual_height = platform.height + 15
         scaled_oneway = pygame.transform.scale(platform_oneway_image, (platform.width, platform.height))
         screen.blit(scaled_oneway, (platform.x, platform.y -8))
     
-    #solid platforms
+    # Solid platforms
     for platform in solid_platforms:
         visual_width = platform.width + 20
         visual_height = platform.height + 17
         scaled_solid = pygame.transform.scale(platform_solid_image, (platform.width, platform.height))
         screen.blit(scaled_solid, (platform.x -10, platform.y -8))
     
-    #Sandwich
+    # Sandwich
     if not sandwich_collected:
         screen.blit(sandwich_image, sandwich)
     
-    #Player bullets
+    # Player bullets
     for bullet_data in bullets:
         bullet = bullet_data[0]
         pygame.draw.rect(screen, (255, 255, 0), bullet)
     
-    #Boss HP bar
+    # Boss HP bar
     current_bar_width = (boss.hp / boss.max_hp) * boss_bar_bg.width
     boss_bar_current = pygame.Rect(
         boss_bar_bg.x,
@@ -335,17 +335,17 @@ def draw_game():
     boss_label = boss_font.render("BOSS HP", True, (255, 255, 255))
     screen.blit(boss_label, (boss_bar_bg.x, boss_bar_bg.y - 22))
     
-    #Boss bullets
+    # Boss bullets
     for bullet_data in boss_bullets:
         bullet = bullet_data[0]
         pygame.draw.rect(screen, (0, 0, 225), bullet)
     
-    #Game over text
+    # Game over text
     if game_over:
         draw_outlined_text(screen, "GAME OVER", font, (255, 255, 255), (0, 0, 0), 330, 220)
         draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 375, 320)
     
-    #Victory text
+    # Victory text
     if victory:
         draw_outlined_text(screen, "YOU WIN!", font, (255, 255, 255), (0, 0, 0), 360, 220)
         draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 370, 300)
