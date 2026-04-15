@@ -116,8 +116,6 @@ def apply_gravity():
 
 
 def handle_ground_collision():
-    global player_y, player_velocity_y, on_ground
-    
     if player.rect.y >= ground_y:
         player.rect.y = ground_y
         player.y = ground_y 
