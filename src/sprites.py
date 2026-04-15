@@ -24,11 +24,16 @@ class Player:
     def take_hit(self):
         self.hits += 1
     
-    def jump(self, jum_strength):
+    def jump(self, jump_strength):
         if self.on_ground:
-            self.velocity_y = jum_strength
+            self.velocity_y = jump_strength
             self.on_ground = False
-
+    
+    def apply_gravity(self, gravity):
+        self.velocity_y += gravity
+        self.y += self.velocity_y
+        self.rect.y = int(self.y)
+        self.on_ground = False
 
 class Boss:
     def __init__(self):
