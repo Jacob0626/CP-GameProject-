@@ -108,7 +108,7 @@ def handle_player_input(key):
 
 def apply_gravity():
     player.velocity_y += gravity
-    player.y += player_velocity_y
+    player.y += player.velocity_y
     player.rect.y = int(player.y)
     
     player.on_ground = False
