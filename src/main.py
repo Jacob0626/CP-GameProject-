@@ -149,7 +149,7 @@ def handle_solid_collisions(previous_player):
                 player.rect.top = platform.bottom
                 player.y = player.rect.y
                 player.velocity_y = 0
-            elif previous_player.rect.right <= platform.left:
+            elif previous_player.right <= platform.left:
                 player.rect.right = platform.left
                 player.rect_x = player.rect.x
             elif previous_player.left >= platform.right:
