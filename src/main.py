@@ -25,6 +25,9 @@ sandwich_image = pygame.transform.scale(sandwich_image, (30, 40))
 platform_oneway_image = pygame.image.load("src/assets/oneway_platform.png").convert_alpha()
 platform_solid_image = pygame.image.load("src/assets/solid_platform.png").convert_alpha()
 
+background_image = pygame.image.load("src/assets/background.png").convert()
+background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
+
 # ---------- Constants ----------
 gravity = 0.6 
 jump_strength = -14
