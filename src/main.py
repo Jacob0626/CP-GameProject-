@@ -260,7 +260,7 @@ def draw_outlined_text(surface, text, font, text_color, outline_color, x, y):
 def draw_started_menu():
     screen.blit(background_image, (0, 0))
     
-    draw_outlined_text(screen, "MINI BOSS FIGHT", font, (255, 255, 255), (0, 0, 0), 220, 150)
+    draw_outlined_text(screen, "MINI BOSS FIGHT", font, (255, 255, 255), (0, 0, 0), 245, 150)
     
     pygame.draw.rect(screen, (50, 50, 50), play_button)
     pygame.draw.rect(screen, (255, 255, 255), play_button, 3)
