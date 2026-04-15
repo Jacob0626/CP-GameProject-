@@ -263,7 +263,7 @@ def draw_game():
     
     #solid platforms
     for platform in solid_platforms:
-        visual_width = platform.width + 10
+        visual_width = platform.width + 20
         visual_height = platform.height + 17
         scaled_solid = pygame.transform.scale(platform_solid_image, (platform.width, platform.height))
         screen.blit(scaled_solid, (platform.x -8, platform.y -8))
