@@ -28,6 +28,9 @@ platform_solid_image = pygame.image.load("src/assets/solid_platform.png").conver
 background_image = pygame.image.load("src/assets/background.png").convert()
 background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
+heart_image = pygame.image.load("src/assets/heart.png").convert_alpha()
+heart_image = pygame.transform.scale(heart_image, (25, 25))
+
 # ---------- Constants ----------
 gravity = 0.6 
 jump_strength = -14
