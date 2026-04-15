@@ -44,6 +44,7 @@ shoot_delay = 30
 victory = False
 game_over = False
 
+
 # ---------- Player ----------
 player = Player()
 
