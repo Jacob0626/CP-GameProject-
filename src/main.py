@@ -172,9 +172,9 @@ def keep_player_inside_screen():
     if player.rect.left < 0:
         player.rect.left = 0
         player.x = 0
-    if player.rect.right > WIDTH:
-        player.rect.right = WIDTH
-        player.x = player.rect.x
+    if player.right > WIDTH:
+        player.right = WIDTH
+        player_x = player.rect.x
 
 
 
