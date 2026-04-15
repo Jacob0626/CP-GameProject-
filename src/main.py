@@ -13,6 +13,15 @@ clock = pygame.time.Clock()
 font = pygame.font.SysFont(None, 60)
 small_font = pygame.font.SysFont(None, 35)
 
+player_image = pygame.image.load("src/assets/Player.png").convert_alpha()
+player_image = pygame.transform.scale(player_image, (50, 50))
+
+boss_image = pygame.image.load("src/assets/Boss.png").convert_alpha()
+boss_imagee = pygame.transform.scale(boss_image, (50, 70))
+
+sandwich_image = pygame.image.load("src/assets/Sandwich.png").convert_alpha()
+
+
 # ---------- Constants ----------
 gravity = 0.6 
 jump_strength = -14
