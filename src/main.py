@@ -149,8 +149,8 @@ def handle_solid_collisions(previous_player):
                 player.rect.top = platform.bottom
                 player.y = player.rect.y
                 player.velocity_y = 0
-            elif previous_player.right <= platform.left:
-                player.right = platform.left
+            elif previous_player.rect.right <= platform.left:
+                player.rect.right = platform.left
                 player.rect_x = player.rect.x
             elif previous_player.left >= platform.right:
                 player.rect.left = platform.right
@@ -170,8 +170,8 @@ def keep_player_inside_screen():
     if player.rect.left < 0:
         player.rect.left = 0
         player.x = 0
-    if player.right > WIDTH:
-        player.right = WIDTH
+    if player.rect.right > WIDTH:
+        player.rect.right = WIDTH
         player.x = player.rect.x
 
 
