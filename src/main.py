@@ -12,6 +12,7 @@ clock = pygame.time.Clock()
 
 font = pygame.font.SysFont(None, 60)
 small_font = pygame.font.SysFont(None, 35)
+boss_font = pygame.font.SysFont(None, 20)
 
 player_image = pygame.image.load("src/assets/Player.png").convert_alpha()
 player_image = pygame.transform.scale(player_image, (50, 50))
