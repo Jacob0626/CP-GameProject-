@@ -53,3 +53,39 @@ pip install pygame
 - The boss has 10 HP
 - If the player loses all lives, the game ends
 - If the boss reaches 0 HP, the player wins
+
+
+---
+
+## OOP Breakdown
+
+### Player
+The Player class stores the player's:
+- position 
+- collision rectangle
+- vertical velocity
+- ground state
+- facing direction 
+- hit count
+- shooting ability
+
+it also includes methods such as:
+- reset()
+- take_hit()
+- jump()
+- apply_gravity()
+
+### Boss
+- The Boss class stores the boss's:
+- collision rectangle
+- HP
+- patrol movement values
+- shooting cooldown
+- patrol limits
+
+It also includes methods such as:
+- reset()
+- update_movement()
+- take_damage()
+
+This use of classes helped organize the code better by grouping game data and behavior into objects instead of keeping everything as separate variables.
