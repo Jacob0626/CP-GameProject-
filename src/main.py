@@ -121,7 +121,7 @@ def handle_ground_collision():
     if player.rect.y >= ground_y:
         player.rect.y = ground_y
         player.y = ground_y 
-        player.facing_rightvelocity_y = 0
+        player.velocity_y = 0
         player.on_ground = True
 
 
