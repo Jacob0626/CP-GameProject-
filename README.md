@@ -24,3 +24,7 @@ install Pygame with:
 
 '''bash
 pip install pygame
+
+
+---
+
