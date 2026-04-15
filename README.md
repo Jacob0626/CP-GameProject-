@@ -62,9 +62,9 @@ python dist/main.py
 ## File Structure 
 
 CP-GameProject/
-├── README.md
-├── demo.mp4
-├── src/
+├── README.md        # Project documentation 
+├── demo.mp4          # Short gameplay demo video
+├── src/            #
 │   ├── assets/
 │   ├── main.py
 │   ├── sprites.py
