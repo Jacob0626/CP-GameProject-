@@ -244,6 +244,17 @@ def update_boss_bullets():
     if player.hits >= 3:
         game_over = True
 
+def draw_outlined_text(surface, text, font, text_color, outline_color, x, y):
+    base_text = font.render(text, True, text_color)
+    outline_text = font.render(text, True, outline_color)
+
+    surface.blit(outline_text, (x - 2, y))
+    surface.blit(outline_text, (x + 2, y))
+    surface.blit(outline_text, (x, y - 2))
+    surface.blit(outline_text, (x, y + 2))
+
+    surface.blit(base_text, (x, y))
+
 
 def draw_game():
     screen.fill((0, 0, 0))
@@ -317,8 +328,7 @@ def draw_game():
         victory_text = font.render("YOU WIN!", True,(255, 255, 255))
         screen.blit(victory_text, (360, 220))
         
-        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (345, 300))
+        draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 355, 320)
 
 
 #---------- Main game loop ----------
