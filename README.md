@@ -24,6 +24,7 @@ install Pygame with:
 
 ```bash
 pip install pygame
+``` 
 
 ---
 ### Run the game 
@@ -76,7 +77,7 @@ CP-GameProject/
     ├── main.py       # Final stable version of the game
     ├── sprites.py    # Final stable class definitions
     └── utils.py      # Optional helper file
-
+```
 
 ---
 
