@@ -10,8 +10,8 @@ HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-font = pygame.font.SysFont(None, 60)
-small_font = pygame.font.SysFont(None, 35)
+font = pygame.font.SysFont("timesnewroman", 60)
+small_font = pygame.font.SysFont("timesnewroman", 35)
 boss_font = pygame.font.SysFont("timesnewroman", 20)
 
 player_image = pygame.image.load("src/assets/Player.png").convert_alpha()
