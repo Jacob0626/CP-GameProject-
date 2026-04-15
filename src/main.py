@@ -320,7 +320,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
     
-    previous_player = player.copy()    # Save previous player position for solid platform collision checks 
+    previous_player = player.rect.copy()    # Save previous player position for solid platform collision checks 
     key = pygame.key.get_pressed()
     
     if not game_over and not victory:
