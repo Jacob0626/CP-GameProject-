@@ -116,3 +116,20 @@ This use of classes helped organize the code better by grouping game data and be
 ---
 
 
+## AI Usage Statement
+
+- AI was used as a support tool for debugging, code organization, and checking the final version of the project.
+- I also learned some ideas and techniques by watching Pygame tutorials on YouTube.
+
+
+---
+
+
+## Future Improvements
+
+Future Improvements would include:
+- better player animation
+- more visual polish for platforms and UI
+- more advanced boss behavior
+- sound effects
+- background music
