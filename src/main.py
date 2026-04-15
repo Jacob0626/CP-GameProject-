@@ -146,10 +146,11 @@ def handle_solid_collisions(previous_player):
 
 
 def handle_sandwich_pickup():
+    global sandwich_collected
+    
     if not sandwich_collected and player.rect.colliderect(sandwich):
+        sandwich_collected = True
         player.can_shoot = True
-        return True
-    return sandwich_collected
 
 
 
@@ -183,7 +184,7 @@ def update_player_bullets():
             boss.take_damage()
             bullets.remove(bullet_data)
         
-        if boss.hp == 0:
+    if boss.hp == 0:
             victory = True
 
 
@@ -316,7 +317,7 @@ while run:
         handle_one_way_collisions()
         handle_solid_collisions(previous_player)
         
-        sandwich_collected = handle_sandwich_pickup()
+        handle_sandwich_pickup()
         
         update_player_bullets()
         update_boss_bullets()
