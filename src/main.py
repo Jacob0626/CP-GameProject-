@@ -22,7 +22,8 @@ boss_image = pygame.transform.scale(boss_image, (50, 70))
 sandwich_image = pygame.image.load("src/assets/Sandwich.png").convert_alpha()
 sandwich_image = pygame.transform.scale(sandwich_image, (30, 40))
 
-platform_oneway_image = pygame.image.load("src/assets/")
+platform_oneway_image = pygame.image.load("src/assets/oneway_platform.png").convert_alpha()
+platform_solid_image = pygame.image.load("src/assets/solid_platform.png").convert_alpha()
 
 # ---------- Constants ----------
 gravity = 0.6 
