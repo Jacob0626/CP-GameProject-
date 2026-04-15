@@ -166,9 +166,9 @@ def update_player_bullets():
     global shoot_cooldown, victory, bullets
     
     for bullet_data in bullets:
-            bullet = bullet_data[0]
-            direction = bullet_data[1]
-            bullet.x += 8 * direction
+        bullet = bullet_data[0]
+        direction = bullet_data[1]
+        bullet.x += 8 * direction
     
     for bullet_data in bullets[:]:
         bullet = bullet_data[0]
