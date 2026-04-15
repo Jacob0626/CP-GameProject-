@@ -257,11 +257,13 @@ def draw_game():
     
     #One way platforms  
     for platform in one_way_platforms:
-        pygame.draw.rect(screen, (255, 255, 255),platform)
+        scaled_oneway = pygame.transform.scale(platform_oneway_image, (platform.width, platform.height))
+        screen.blit(scaled_oneway, platform)
     
     #solid platforms
     for platform in solid_platforms:
-        pygame.draw.rect(screen, (255, 140, 0), platform)
+        scaled_solid = pygame.transform.scale(platform_solid_image, (platform.width, platform.height))
+        screen.blit(scaled_solid, platform)
     
     #Sandwich
     if not sandwich_collected:
