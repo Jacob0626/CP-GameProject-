@@ -70,7 +70,7 @@ CP-GameProject/
 │   ├── sprites.py       # Player and Boss classes used during development
 │   └── utils.py       # Optional helper file
 └── dist/          
-    ├── assets/  
+    ├── assets/       # Final verified assets 
     ├── main.py
     ├── sprites.py
     └── utils.py
