@@ -193,19 +193,18 @@ def update_player_bullets():
     for bullet_data in bullets[:]:
         bullet = bullet_data[0]
         if bullet.colliderect(boss):
-            boss_hp -= 1
+            boss.hp -= 1
             bullets.remove(bullet_data)
     
-    if boss_hp < 0:
-        boss_hp = 0
-    if boss_hp == 0:
+    if boss.hp < 0:
+        boss.hp = 0
+    if boss.hp == 0:
         victory = True
 
 
 
 def update_boss_bullets():
-    global boss_shoot_cooldown, player_hits, game_over
-    global boss_bullets
+    global game
     
     if boss_shoot_cooldown == 0 and not victory:
         if player.centerx < boss.centerx:
