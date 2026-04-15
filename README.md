@@ -28,3 +28,10 @@ pip install pygame
 
 ---
 
+## CONTROLS
+
+| A | Move Left |
+| D | Move right |
+| Space | Jump |
+| J | Shoot | 
+| R | Restart (after Game Over or Victory) |
