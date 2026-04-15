@@ -229,7 +229,7 @@ def update_boss_bullets():
     for bullet_data in boss_bullets[:]:
         bullet = bullet_data[0]
         if bullet.colliderect(player.rect):
-            player.hits += 1
+            player.take_hit()
             boss_bullets.remove(bullet_data)
     
     if player.hits >= 3:
