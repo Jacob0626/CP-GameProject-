@@ -82,6 +82,7 @@ solid_platforms = [platform3, platform4, platform6]
 
 # ---------- Functions ----------
 def reset_game():
+    # Reset the game state after victory or game over
     global game_over, victory
     global sandwich_collected
     global bullets, boss_bullets
@@ -102,6 +103,7 @@ def reset_game():
 
 
 def handle_player_input(key):
+    # Handle player movement, jumping, and shooting input
     global shoot_cooldown, bullets
     
     if key[pygame.K_a]:
@@ -126,6 +128,7 @@ def handle_player_input(key):
 
 
 def handle_ground_collision():
+    # Keep the player on the ground when falling below the floor level
     if player.rect.y >= ground_y:
         player.rect.y = ground_y
         player.y = ground_y 
@@ -135,6 +138,7 @@ def handle_ground_collision():
 
 
 def handle_one_way_collisions():
+    # Allow the player to land on top of one way platforms
     if player.velocity_y > 0:
         for platform in one_way_platforms:
             if player.rect.colliderect(platform):
@@ -146,6 +150,7 @@ def handle_one_way_collisions():
 
 
 def handle_solid_collisions(previous_player):
+    # Handle collisions with solid platforms from top, bottom, left, and right
     for platform in solid_platforms:
         if player.rect.colliderect(platform):
             if previous_player.bottom <= platform.top and player.velocity_y > 0:
@@ -167,6 +172,7 @@ def handle_solid_collisions(previous_player):
 
 
 def handle_sandwich_pickup():
+    # Unlock shooting when player collects the sandwich
     global sandwich_collected
     
     if not sandwich_collected and player.rect.colliderect(sandwich):
@@ -176,6 +182,7 @@ def handle_sandwich_pickup():
 
 
 def keep_player_inside_screen():
+    # Prevent the player from leaving the screen horizontally
     if player.rect.left < 0:
         player.rect.left = 0
         player.x = 0
@@ -184,6 +191,7 @@ def keep_player_inside_screen():
         player.x = player.rect.x
 
 def update_player_bullets():
+    # Move player bullets, remove off screen bullets, and damage the boss
     global shoot_cooldown, victory, bullets
     
     for bullet_data in bullets:
@@ -211,6 +219,7 @@ def update_player_bullets():
 
 
 def update_boss_bullets():
+    # Spawn boss bullets, move them, and damage the player on contact 
     global game_over, boss_bullets
     
     if boss.shoot_cooldown == 0 and not victory:
@@ -247,6 +256,7 @@ def update_boss_bullets():
         game_over = True
 
 def draw_outlined_text(surface, text, font, text_color, outline_color, x, y):
+    # Draw text with a simple outline for better visibility
     base_text = font.render(text, True, text_color)
     outline_text = font.render(text, True, outline_color)
 
@@ -258,6 +268,7 @@ def draw_outlined_text(surface, text, font, text_color, outline_color, x, y):
     surface.blit(base_text, (x, y))
 
 def draw_start_menu():
+    # Draw the starting menu before gameplay begins
     screen.blit(background_image, (0, 0))
     
     draw_outlined_text(screen, "MINI BOSS FIGHT", font, (255, 255, 255), (0, 0, 0), 245, 150)
@@ -270,6 +281,7 @@ def draw_start_menu():
     screen.blit(play_text, play_text_rect)
 
 def draw_game():
+    # Draw all game visuals during gameplay 
     screen.blit(background_image, (0, 0))
     
     
