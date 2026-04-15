@@ -129,7 +129,7 @@ def handle_one_way_collisions():
         for platform in one_way_platforms:
             if player.rect.colliderect(platform):
                 player.rect.bottom = platform.top
-                player.y = player.y
+                player.y = player.rect.y
                 player.velocity_y = 0
                 player.on_ground = True 
 
