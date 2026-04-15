@@ -347,11 +347,15 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        
+        if event.type == pygame.MOUSEBUTTONDOWN and not game_started:
+            if play_button.collidepoint(event.pos):
+                game_started = True
     
     previous_player = player.rect.copy()    # Save previous player position for solid platform collision checks 
     key = pygame.key.get_pressed()
     
-    if not game_over and not victory:
+    if game_started and not game_over and not victory:
         boss.update_movement()
         
         handle_player_input(key)
@@ -373,7 +377,11 @@ while run:
     if (game_over or victory) and key[pygame.K_r]:
         reset_game()
     
-    draw_game()
+    if not game_started:
+        draw_started_menu()
+    else:
+        draw_game()
+    
     pygame.display.update() 
     clock.tick(60)
 
