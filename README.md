@@ -36,3 +36,20 @@ pip install pygame
 | Space | Jump |
 | J | Shoot | 
 | R | Restart (after Game Over or Victory) |
+
+
+--- 
+
+
+## Main Mechanics
+
+- The player can move, jump, and land on platforms
+- One-way platforms can be landed on from above, but passed through from below
+- Solid platforms block the player from all sides
+- The player starts without shooting
+- Collecting the sandwich unlocks the player’s attack
+- The boss patrols in a fixed area and shoots at the player
+- The player has 3 lives
+- The boss has 10 HP
+- If the player loses all lives, the game ends
+- If the boss reaches 0 HP, the player wins
