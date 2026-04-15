@@ -247,8 +247,7 @@ def draw_game():
         pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
     
     #Boss
-    pygame.draw.rect(screen, (255, 0, 0), boss.rect)
-    
+    screen.blit(boss_image, boss.rect)    
     #Ground
     pygame.draw.rect(screen, (0, 180, 0), grass)
     pygame.draw.rect(screen, (139, 69, 19), soil)
@@ -263,8 +262,8 @@ def draw_game():
     
     #Sandwich
     if not sandwich_collected:
-        pygame.draw.rect(screen,(0, 255, 255), sandwich)
-        
+        screen.blit(sandwich_image, sandwich)
+    
     #Player bullets
     for bullet_data in bullets:
         bullet = bullet_data[0]
