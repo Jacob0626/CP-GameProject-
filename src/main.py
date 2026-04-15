@@ -190,15 +190,12 @@ def update_player_bullets():
     
     for bullet_data in bullets[:]:
         bullet = bullet_data[0]
-        if bullet.colliderect(boss):
-            boss.hp -= 1
+        if bullet.colliderect(boss.rect):
+            boss.take_damage()
             bullets.remove(bullet_data)
-    
-    if boss.hp < 0:
-        boss.hp = 0
-    
-    if boss.hp == 0:
-        victory = True
+        
+        if boss.hp == 0:
+            victory = True
 
 
 

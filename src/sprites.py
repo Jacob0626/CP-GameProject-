@@ -55,7 +55,7 @@ class Boss:
             self.rect.right = self.right_limit
             self.direction = -1
     
-    def take_damange(self):
+    def take_damage(self):
         self.hp -= 1
         if self.hp < 0:
             self.hp = 0
