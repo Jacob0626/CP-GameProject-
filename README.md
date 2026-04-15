@@ -62,19 +62,20 @@ python dist/main.py
 
 ## File Structure 
 
+```text
 CP-GameProject/
-├── README.md        # Project documentation 
-├── demo.mp4        # Short gameplay demo video
-├── src/         
-│   ├── assets/       # Development assets such as sprites, textures, and images   
-│   ├── main.py       # Development version of the game
-│   ├── sprites.py       # Player and Boss classes used during development
-│   └── utils.py       # Optional helper file
-└── dist/          
-    ├── assets/       # Final verified assets used by the game 
-    ├── main.py       # Finale stable version of the game
-    ├── sprites.py        # Final stable class definitions
-    └── utils.py        # Optional helper file for final version
+├── README.md         # Project documentation
+├── demo.mp4          # Short gameplay demo video
+├── src/              # Development version
+│   ├── assets/       # Development assets
+│   ├── main.py       # Main development game file
+│   ├── sprites.py    # Player and Boss classes
+│   └── utils.py      # Optional helper file
+└── dist/             # Final stable version
+    ├── assets/       # Final verified assets used by the game
+    ├── main.py       # Final stable version of the game
+    ├── sprites.py    # Final stable class definitions
+    └── utils.py      # Optional helper file
 
 
 ---
