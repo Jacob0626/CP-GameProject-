@@ -14,22 +14,22 @@ font = pygame.font.SysFont("timesnewroman", 60)
 small_font = pygame.font.SysFont("timesnewroman", 35)
 boss_font = pygame.font.SysFont("timesnewroman", 20)
 
-player_image = pygame.image.load("src/assets/Player.png").convert_alpha()
+player_image = pygame.image.load("dist/assets/Player.png").convert_alpha()
 player_image = pygame.transform.scale(player_image, (50, 50))
 
-boss_image = pygame.image.load("src/assets/Boss.png").convert_alpha()
+boss_image = pygame.image.load("dist/assets/Boss.png").convert_alpha()
 boss_image = pygame.transform.scale(boss_image, (50, 70))
 
-sandwich_image = pygame.image.load("src/assets/Sandwich.png").convert_alpha()
+sandwich_image = pygame.image.load("dist/assets/Sandwich.png").convert_alpha()
 sandwich_image = pygame.transform.scale(sandwich_image, (30, 40))
 
-platform_oneway_image = pygame.image.load("src/assets/oneway_platform.png").convert_alpha()
-platform_solid_image = pygame.image.load("src/assets/solid_platform.png").convert_alpha()
+platform_oneway_image = pygame.image.load("dist/assets/oneway_platform.png").convert_alpha()
+platform_solid_image = pygame.image.load("dist/assets/solid_platform.png").convert_alpha()
 
-background_image = pygame.image.load("src/assets/background.png").convert()
+background_image = pygame.image.load("dist/assets/background.png").convert()
 background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
-heart_image = pygame.image.load("src/assets/heart.png").convert_alpha()
+heart_image = pygame.image.load("dist/assets/heart.png").convert_alpha()
 heart_image = pygame.transform.scale(heart_image, (25, 25))
 
 # ---------- Constants ----------
