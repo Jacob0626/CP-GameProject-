@@ -324,10 +324,11 @@ while run:
     key = pygame.key.get_pressed()
     
     if not game_over and not victory:
-        update_boss_movement()
+        boss.update_movement()
+        
         handle_player_input(key)
         
-        player.x = int(player.x)
+        player.rect.x = int(player.x)
         
         apply_gravity()
         handle_ground_collision()
@@ -335,6 +336,7 @@ while run:
         handle_solid_collisions(previous_player)
         
         handle_sandwich_pickup()
+        
         update_player_bullets()
         update_boss_bullets()
         
