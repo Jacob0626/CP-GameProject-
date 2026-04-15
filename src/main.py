@@ -255,7 +255,7 @@ def draw_game():
     #player lives 
     player_lives = 3 - player.hits
     for i in range(player_lives):
-        pygame.draw.rect(screen, (255, 0, 0), (20 + i * 35, 20, 25, 25))
+        screen.blit(heart_image, (20 + i * 35, 20))
     
     #Boss
     screen.blit(boss_image, boss.rect)    
