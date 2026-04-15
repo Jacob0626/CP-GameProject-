@@ -167,14 +167,12 @@ def handle_sandwich_pickup():
 
 
 def keep_player_inside_screen():
-    global player_x
-    
     if player.rect.left < 0:
         player.rect.left = 0
         player.x = 0
     if player.right > WIDTH:
         player.right = WIDTH
-        player_x = player.rect.x
+        player.x = player.rect.x
 
 
 
@@ -347,7 +345,7 @@ while run:
         update_boss_movement()
         handle_player_input(key)
         
-        player.x = int(player_x)
+        player.x = int(player.x)
         
         apply_gravity()
         handle_ground_collision()
