@@ -324,7 +324,7 @@ def draw_game():
     #Victory text
     if victory:
         draw_outlined_text(screen, "YOU WIN!", font, (255, 255, 255), (0, 0, 0), 360, 220)
-        draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 365, 300)
+        draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 370, 300)
 
 
 #---------- Main game loop ----------
