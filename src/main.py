@@ -100,9 +100,8 @@ def handle_player_input(key):
         
         shoot_cooldown = shoot_delay
     
-    if key[pygame.K_SPACE] and player.on_ground:
-            player.velocity_y = jump_strength
-            player.on_ground = False
+    if key[pygame.K_SPACE]:
+        player.jump(jump_strength)
 
 
 
