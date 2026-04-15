@@ -252,8 +252,8 @@ def draw_game():
     #Boss
     screen.blit(boss_image, boss.rect)    
     #Ground
-    pygame.draw.rect(screen, (0, 180, 0), grass)
-    pygame.draw.rect(screen, (139, 69, 19), soil)
+    pygame.draw.rect(screen, (20, 120, 20), grass)
+    pygame.draw.rect(screen, (90, 55, 20), soil)
     
     #One way platforms  
     for platform in one_way_platforms:
