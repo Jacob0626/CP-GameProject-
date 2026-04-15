@@ -265,7 +265,7 @@ def draw_game():
     for platform in solid_platforms:
         visual_height = platform.height + 30
         scaled_solid = pygame.transform.scale(platform_solid_image, (platform.width, platform.height))
-        screen.blit(scaled_solid, (platform.x, platform.y - 1))
+        screen.blit(scaled_solid, (platform.x, platform.y -8))
     
     #Sandwich
     if not sandwich_collected:
