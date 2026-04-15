@@ -204,18 +204,18 @@ def update_player_bullets():
 
 
 def update_boss_bullets():
-    global game
+    global game_over, boss_bullets
     
-    if boss_shoot_cooldown == 0 and not victory:
-        if player.centerx < boss.centerx:
+    if boss.shoot_cooldown == 0 and not victory:
+        if player.rect.centerx < boss.rect.centerx:
             boss_bullet_direction = -1
-            boss_bullet = pygame.Rect(boss.left - 10, boss.centery - 5, 10, 10)
+            boss_bullet = pygame.Rect(boss.rect.left - 10, boss.rect.centery - 5, 10, 10)
         else:
             boss_bullet_direction = 1
-            boss_bullet = pygame.Rect(boss.right, boss.centery - 5, 10, 10)
+            boss_bullet = pygame.Rect(boss.rect.right, boss.centery - 5, 10, 10)
     
         boss_bullets.append([boss_bullet, boss_bullet_direction])
-        boss_shoot_cooldown = boss_shoot_delay
+        boss.shoot_cooldown = boss.shoot_delay
     
     for bullet_data in boss_bullets:
         bullet = bullet_data[0]
@@ -227,20 +227,17 @@ def update_boss_bullets():
         if bullet.right <0 or bullet.left > WIDTH:
             boss_bullets.remove(bullet_data)
     
-    if boss_shoot_cooldown > 0:
-        boss_shoot_cooldown -= 1
+    if boss.shoot_cooldown > 0:
+        boss.shoot_cooldown -= 1
     
     for bullet_data in boss_bullets[:]:
         bullet = bullet_data[0]
-        if bullet.colliderect(player):
-            player_hits += 1
+        if bullet.colliderect(player.rect):
+            player.hits += 1
             boss_bullets.remove(bullet_data)
     
-    if player_hits >= 3:
+    if player.hits >= 3:
         game_over = True
-
-
-
 
 
 def draw_game():
