@@ -319,16 +319,13 @@ def draw_game():
     #Game over text
     if game_over:
         draw_outlined_text(screen, "GAME OVER", font, (255, 255, 255), (0, 0, 0), 330, 220)
-        
-        restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (355, 320))
+        draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 355, 320)
     
     #Victory text
     if victory:
-        victory_text = font.render("YOU WIN!", True,(255, 255, 255))
-        screen.blit(victory_text, (360, 220))
+        draw_outlined_text(screen, "YOU WIN!", font, (255, 255, 255), (0, 0, 0), 360, 220)
         
-        draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 355, 320)
+        draw_outlined_text(screen, "Press R to Restart", small_font, (255, 255, 255), (0, 0, 0), 345, 300)
 
 
 #---------- Main game loop ----------
