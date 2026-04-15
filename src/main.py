@@ -104,16 +104,6 @@ def handle_player_input(key):
         player.jump(jump_strength)
 
 
-
-def apply_gravity():
-    player.velocity_y += gravity
-    player.y += player.velocity_y
-    player.rect.y = int(player.y)
-    
-    player.on_ground = False
-
-
-
 def handle_ground_collision():
     if player.rect.y >= ground_y:
         player.rect.y = ground_y
@@ -321,7 +311,7 @@ while run:
         
         player.rect.x = int(player.x)
         
-        apply_gravity()
+        player.apply_gravity(gravity)
         handle_ground_collision()
         handle_one_way_collisions()
         handle_solid_collisions(previous_player)
