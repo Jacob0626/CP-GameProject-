@@ -243,6 +243,8 @@ def update_boss_bullets():
 
 def draw_game():
     screen.fill((0, 0, 0))
+    screen.blit(background_image, (0, 0))
+    
     
     #Player
     screen.blit(player_image, player.rect)
