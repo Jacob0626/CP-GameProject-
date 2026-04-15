@@ -257,13 +257,15 @@ def draw_game():
     
     #One way platforms  
     for platform in one_way_platforms:
+        visual_height = platform.height + 10
         scaled_oneway = pygame.transform.scale(platform_oneway_image, (platform.width, platform.height))
         screen.blit(scaled_oneway, (platform.x, platform.y -8))
     
     #solid platforms
     for platform in solid_platforms:
+        visual_height = platform.height + 30
         scaled_solid = pygame.transform.scale(platform_solid_image, (platform.width, platform.height))
-        screen.blit(scaled_solid, (platform.x, platform.y - 8))
+        screen.blit(scaled_solid, (platform.x, platform.y - 1))
     
     #Sandwich
     if not sandwich_collected:
