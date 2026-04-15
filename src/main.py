@@ -297,7 +297,7 @@ def draw_game():
     pygame.draw.rect(screen, (80, 80, 80), boss_bar_bg)
     pygame.draw.rect(screen, (255, 0, 0), boss_bar_current)
     pygame.draw.rect(screen, (255, 255, 255), boss_bar_bg, 2)
-    boss_label = small_font.render("BOSS HP", True, (255, 255, 255))
+    boss_label = boss_font.render("BOSS HP", True, (255, 255, 255))
     screen.blit(boss_label, (boss_bar_bg.x, boss_bar_bg.y - 22))
     
     #Boss bullets
