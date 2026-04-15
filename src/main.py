@@ -196,6 +196,7 @@ def update_player_bullets():
     
     if boss.hp < 0:
         boss.hp = 0
+    
     if boss.hp == 0:
         victory = True
 
