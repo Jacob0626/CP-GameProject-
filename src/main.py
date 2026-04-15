@@ -193,7 +193,7 @@ def update_player_bullets():
     
     for bullet_data in bullets[:]:
         bullet = bullet_data[0]
-        if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out of the window,it is removed from the list
+        if bullet.right < 0 or bullet.left > WIDTH:        # If the bullet goes out of the window, it is removed from the list
             bullets.remove(bullet_data)
         
     if shoot_cooldown > 0:
