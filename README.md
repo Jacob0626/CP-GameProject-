@@ -29,7 +29,8 @@ pip install pygame
 ---
 
 ## CONTROLS
-
+| Key | Action |
+|---|---| 
 | A | Move Left |
 | D | Move right |
 | Space | Jump |
