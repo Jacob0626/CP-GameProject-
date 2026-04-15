@@ -72,8 +72,8 @@ CP-GameProject/
 └── dist/          
     ├── assets/       # Final verified assets used by the game 
     ├── main.py       # Finale stable version of the game
-    ├── sprites.py        #
-    └── utils.py
+    ├── sprites.py        # Final stable class definitions
+    └── utils.py        # Optional helper file for final version
 
 
 ---
