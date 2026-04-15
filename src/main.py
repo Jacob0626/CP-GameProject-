@@ -159,7 +159,7 @@ def handle_solid_collisions(previous_player):
 def handle_sandwich_pickup():
     if not sandwich_collected and player.rect.colliderect(sandwich):
         player.can_shoot = True
-        return False
+        return True
     return sandwich_collected
 
 
