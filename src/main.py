@@ -335,7 +335,7 @@ while run:
         handle_one_way_collisions()
         handle_solid_collisions(previous_player)
         
-        handle_sandwich_pickup()
+        sandwich_collected = handle_sandwich_pickup()
         
         update_player_bullets()
         update_boss_bullets()
