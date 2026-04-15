@@ -270,7 +270,6 @@ def draw_start_menu():
     screen.blit(play_text, play_text_rect)
 
 def draw_game():
-    screen.fill((0, 0, 0))
     screen.blit(background_image, (0, 0))
     
     
