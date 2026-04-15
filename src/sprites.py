@@ -20,6 +20,9 @@ class Player:
         self.facing_right = True
         self.hits = 0
         self.can_shoot = False
+    
+    def take_hit(self):
+        self.hits += 1
 
 
 class Boss:
@@ -51,3 +54,8 @@ class Boss:
         if self.rect.right >= self.right_limit:
             self.rect.right = self.right_limit
             self.direction = -1
+    
+    def take_damange(self):
+        self.hp -= 1
+        if self.hp < 0:
+            self.hp = 0
