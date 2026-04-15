@@ -138,46 +138,43 @@ def handle_one_way_collisions():
 
 
 def handle_solid_collisions(previous_player):
-    global player_y, player_velocity_y, on_ground, player_x
-    
     for platform in solid_platforms:
-        if player.colliderect(platform):
-            if previous_player.bottom <= platform.top and player_velocity_y > 0:
+        if player.rect.colliderect(platform):
+            if previous_player.bottom <= platform.top and player.velocity_y > 0:
                 player.bottom = platform.top 
-                player_y = player.y
-                player_velocity_y = 0 
-                on_ground = True
-            elif previous_player.top >= platform.bottom and player_velocity_y < 0:
-                player.top = platform.bottom
-                player_y = player.y
-                player_velocity_y = 0
+                player.y = player.rect.y
+                player.velocity_y = 0 
+                player.on_ground = True
+            elif previous_player.top >= platform.bottom and player.velocity_y < 0:
+                player.rect.top = platform.bottom
+                player.y = player.rect.y
+                player.velocity_y = 0
             elif previous_player.right <= platform.left:
                 player.right = platform.left
-                player_x = player.x
+                player.rect_x = player.rect.x
             elif previous_player.left >= platform.right:
-                player.left = platform.right
-                player_x = player.x 
+                player.rect.left = platform.right
+                player.x = player.rect.x 
 
 
 
 def handle_sandwich_pickup():
-    global sandwich_collected, can_shoot
-    
-    if not sandwich_collected and player.colliderect(sandwich):
-        sandwich_collected = True
-        can_shoot = True
+    if not sandwich_collected and player.rect.colliderect(sandwich):
+        player.can_shoot = True
+        return False
+    return sandwich_collected
 
 
 
 def keep_player_inside_screen():
     global player_x
     
-    if player.left < 0:
-        player.left = 0
-        player_x = 0
-    if player.right > WIDTH:
-        player.right = WIDTH
-        player_x = player.x
+    if player.rect.left < 0:
+        player.rect.left = 0
+        player.x = 0
+    if player.rect.right > WIDTH:
+        player.rect.right = WIDTH
+        player.x = player.rect.x
 
 
 
