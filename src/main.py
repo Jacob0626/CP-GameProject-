@@ -208,7 +208,7 @@ def update_boss_bullets():
             boss_bullet = pygame.Rect(boss.rect.left - 10, boss.rect.centery - 5, 10, 10)
         else:
             boss_bullet_direction = 1
-            boss_bullet = pygame.Rect(boss.rect.right, boss.centery - 5, 10, 10)
+            boss_bullet = pygame.Rect(boss.rect.right, boss.rect.centery - 5, 10, 10)
     
         boss_bullets.append([boss_bullet, boss_bullet_direction])
         boss.shoot_cooldown = boss.shoot_delay
