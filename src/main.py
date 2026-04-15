@@ -59,9 +59,9 @@ soil = pygame.Rect((0, 530, 1000, 80))
 
 #---------- Platforms ----------
 # one way platforms 
-platform1 = pygame.Rect((100, 420, 130, 10))
-platform2 = pygame.Rect((770, 420, 130, 10))    #Player can land on top, but can pass through form below
-platform5 = pygame.Rect((510, 100, 130, 10))
+platform1 = pygame.Rect((100, 420, 130, 15))
+platform2 = pygame.Rect((770, 420, 130, 15))    #Player can land on top, but can pass through form below
+platform5 = pygame.Rect((510, 100, 130, 15))
 one_way_platforms = [platform1, platform2, platform5]
 
 #solid platforms
@@ -262,8 +262,9 @@ def draw_game():
     
     #solid platforms
     for platform in solid_platforms:
+        visual_height = platform.height + 20
         scaled_solid = pygame.transform.scale(platform_solid_image, (platform.width, platform.height))
-        screen.blit(scaled_solid, platform)
+        screen.blit(scaled_solid, (platform.x, platform.y - 10))
     
     #Sandwich
     if not sandwich_collected:
