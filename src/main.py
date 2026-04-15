@@ -307,8 +307,7 @@ def draw_game():
     
     #Game over text
     if game_over:
-        game_over_text = font.render("GAME OVER", True, (255, 255, 255))
-        screen.blit(game_over_text, (330, 220))
+        draw_outlined_text(screen, "GAME OVER", font, (255, 255, 255), (0, 0, 0), 330, 220)
         
         restart_text = small_font.render("Press R to Restart", True, (255, 255, 255))
         screen.blit(restart_text, (355, 320))
