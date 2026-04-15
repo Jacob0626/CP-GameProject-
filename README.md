@@ -22,7 +22,7 @@ The game includes jumping, gravity, one-way platforms, solid platforms, boss pat
 
 install Pygame with:
 
-'''bash
+```bash
 pip install pygame
 
 ---
