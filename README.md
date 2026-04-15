@@ -63,14 +63,14 @@ python dist/main.py
 
 CP-GameProject/
 ├── README.md        # Project documentation 
-├── demo.mp4          # Short gameplay demo video
-├── src/            #
-│   ├── assets/
-│   ├── main.py
-│   ├── sprites.py
-│   └── utils.py
-└── dist/
-    ├── assets/
+├── demo.mp4        # Short gameplay demo video
+├── src/         
+│   ├── assets/       # Development assets such as sprites, textures, and images   
+│   ├── main.py       # Development version of the game
+│   ├── sprites.py       # Player and Boss classes used during development
+│   └── utils.py       # Optional helper file
+└── dist/          
+    ├── assets/  
     ├── main.py
     ├── sprites.py
     └── utils.py
