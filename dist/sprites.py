@@ -64,7 +64,7 @@ class Boss:
         self.direction = 1
     
     def update_movement(self):
-        # Move the boss back and forth between patrol limit
+        # Move the boss back and forth between patrol limits
         self.rect.x += self.speed * self.direction
         
         if self.rect.left <= self.left_limit:
