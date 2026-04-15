@@ -257,7 +257,7 @@ def draw_outlined_text(surface, text, font, text_color, outline_color, x, y):
 
     surface.blit(base_text, (x, y))
 
-def draw_started_menu():
+def draw_start_menu():
     screen.blit(background_image, (0, 0))
     
     draw_outlined_text(screen, "MINI BOSS FIGHT", font, (255, 255, 255), (0, 0, 0), 245, 150)
@@ -378,7 +378,7 @@ while run:
         reset_game()
     
     if not game_started:
-        draw_started_menu()
+        draw_start_menu()
     else:
         draw_game()
     
